@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="Ascii-View">
+<Children>
+<UntilDelimiterFieldDefinition label="ascii">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<Data bitSize="0" data=""/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<Author>martin.pape@gmx.de</Author>
+<Description/>
+</RootStatement>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="libcap">
+<Children>
+<DataEncodingFieldDefinition label="libcap-crap">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="192"/>
+</DataEncodingFieldDefinition>
+<UntilDelimiterRepeatStatement label="frame">
+<Children>
+<RepeatStatement label="packet-information">
+<Children>
+<DataEncodingFieldDefinition label="crap">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="48"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="frame-number">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="true" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="packet-length">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="true" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="capture-length">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="true" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="ethernetII-DIX">
+<Children>
+<DataEncodingFieldDefinition label="source">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="48"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="destination">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="48"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="type">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="16">
+<Map name="IP" encodedData="0800"/>
+<Map name="XNS" encodedData="0600"/>
+<Map name="DECNET" encodedData="6000"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<RepeatStatement label="ipv4">
+<Children>
+<DataEncodingFieldDefinition label="version">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="4" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="header-length">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="4" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="type-of-service">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="total-length">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="identification">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="crap">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="time-to-live">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="protocol">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="8">
+<Map name="UDP" encodedData="11"/>
+<Map name="TCP" encodedData="06"/>
+<Map name="Invalid" encodedData="0A"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="crap2">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="source">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="destination">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="select-protocol">
+<Children>
+<RepeatStatement label="UDP">
+<Children>
+<DataEncodingFieldDefinition label="source-port">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="destination-port">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="length">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="checksum">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="frame/ethernetII-DIX/ipv4/select-protocol/UDP/length"/>
+<ModificationDefinition multiplication="8" addition="-64"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="TCP">
+<Children>
+<DataEncodingFieldDefinition label="source-port">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="destination-port">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="sequence-number">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="acknowledgement-number">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="data-offset">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="4" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="6"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="control-flags">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="6"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="window-size">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="checksum">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="urgent-pointer">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<UntilOffsetFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="frame/ethernetII-DIX/ipv4/total-length"/>
+<ModificationDefinition multiplication="8" addition="0"/>
+</PointerLengthDefinition>
+<LocationDefinition path="frame/ethernetII-DIX/ipv4"/>
+</UntilOffsetFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="options+data">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="frame/ethernetII-DIX/ipv4/total-length"/>
+<ModificationDefinition multiplication="8" addition="0"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<LocationDefinition path="frame/ethernetII-DIX/ipv4/protocol"/>
+<CaseDefinition defaultCase="options+data">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="8">
+<Map name="TCP" encodedData="06"/>
+<Map name="UDP" encodedData="11"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<Data bitSize="0" data=""/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterRepeatStatement>
+</Children>
+<Author/>
+<Description/>
+</RootStatement>

@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: dataWorkshop.DataWorkshop
+Class-Path: /usr/share/java/xalan2.jar

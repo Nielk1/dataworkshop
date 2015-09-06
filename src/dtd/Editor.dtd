@@ -1,0 +1,123 @@
+<!--
+    Description:
+-->
+<!ENTITY % DialogAttributes "width CDATA #REQUIRED height CDATA #REQUIRED xPosition CDATA #REQUIRED yPosition CDATA #REQUIRED">
+<!ENTITY % RootStatement.dtd SYSTEM "RootStatement.dtd">
+%RootStatement.dtd;
+
+<!ELEMENT Editor (LookAndFeel, MyFont, SingleLineViews, Dialogs, TransformMenu, CalculateMenu, DataFieldEditorActions, DataTreeViewActions) >
+<!ATTLIST Editor
+   width      CDATA #REQUIRED
+   height   CDATA #REQUIRED
+>
+
+<!ELEMENT LookAndFeel (#PCDATA) >
+<!ELEMENT MyFont EMPTY >
+<!ATTLIST MyFont
+   name      CDATA #REQUIRED
+   size     CDATA #REQUIRED
+>
+
+<!--
+-->
+<!ELEMENT SingleLineViews (%Encoding;)* >
+
+<!--
+    Under the Window tag are the serialized Dialogs.
+-->
+<!ELEMENT Dialogs (AboutDialog, DataClipboardDialog, DataViewQueryDialog, DiffDataDialog, EncodingConverterDialog, ExportDataViewDialog, FindAndReplaceDialog, ManualDialog, PreferencesDialog, StructurePaletteDialog, TextClipboardDialog) >
+<!ELEMENT AboutDialog EMPTY >
+<!ATTLIST AboutDialog
+   %DialogAttributes;
+>
+
+<!ELEMENT DataClipboardDialog EMPTY >
+<!ATTLIST DataClipboardDialog
+   %DialogAttributes;
+>
+
+<!ELEMENT DataViewQueryDialog (History) >
+<!ATTLIST DataViewQueryDialog
+   %DialogAttributes;
+>
+<!ELEMENT History (Query)* >
+<!ELEMENT Query (#PCDATA) >
+
+<!ELEMENT DiffDataDialog EMPTY >
+<!ATTLIST DiffDataDialog
+   %DialogAttributes;
+   stepSize     CDATA #REQUIRED
+>
+
+<!ELEMENT EncodingConverterDialog (Encodings) >
+<!ATTLIST EncodingConverterDialog
+   %DialogAttributes;
+>
+<!ELEMENT Encodings (%Encoding;)* >
+
+<!ELEMENT ExportDataViewDialog EMPTY >
+<!ATTLIST ExportDataViewDialog
+   %DialogAttributes;
+>
+
+<!ELEMENT FindAndReplaceDialog (FindAndReplace) >
+<!ATTLIST FindAndReplaceDialog
+   %DialogAttributes;
+>
+<!--
+    :REFACTORING: Martin Pape 2003-06-21#
+    This is duplicated in DataTransformtion.
+-->
+<!ELEMENT FindAndReplace ((%Encoding;), Data, (%Encoding;), Data)>
+<!ATTLIST FindAndReplace
+   stepSize     CDATA #REQUIRED 
+>
+
+<!ELEMENT ManualDialog EMPTY >
+<!ATTLIST ManualDialog
+   %DialogAttributes;
+>
+
+<!ELEMENT PreferencesDialog EMPTY >
+<!ATTLIST PreferencesDialog
+   %DialogAttributes;
+>
+
+<!ELEMENT StructurePaletteDialog (RootStatement) >
+<!ATTLIST StructurePaletteDialog
+   %DialogAttributes;
+>
+
+<!ELEMENT TextClipboardDialog EMPTY >
+<!ATTLIST TextClipboardDialog
+   %DialogAttributes;
+>
+
+<!--
+    These elements are used to bind DataTransformations into the editor.
+    The name attribute in the SubMenu tag must be a file in the transformation 
+    directory.
+-->
+<!ELEMENT TransformMenu (DataTransformationMenu) >
+<!ELEMENT CalculateMenu (DataTransformationMenu) >
+<!ELEMENT DataTransformationMenu (SubMenu)* >
+<!ELEMENT SubMenu (Transformation)* >
+<!ATTLIST SubMenu
+   name     CDATA  #REQUIRED
+>
+<!ELEMENT Transformation (#PCDATA) >
+<!ATTLIST Transformation
+   name     CDATA  #REQUIRED
+>
+
+<!--
+    Here are the KeyBindings
+-->
+<!ELEMENT DataFieldEditorActions (MyKeyBinding)* >
+<!ELEMENT DataTreeViewActions (MyKeyBinding)* >
+<!ELEMENT MyKeyBinding EMPTY >
+<!ATTLIST MyKeyBinding
+   action     CDATA  #REQUIRED
+   keycode     CDATA  #REQUIRED
+   modifier     CDATA  #REQUIRED
+>

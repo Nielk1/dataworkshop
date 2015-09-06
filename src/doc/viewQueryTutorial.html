@@ -1,0 +1,121 @@
+<html>
+<head>
+</head>
+<body>
+
+<p>
+<div align="right"><a href="xmlFiles.html">next</a> - <a 
+href="credits.html">previous</a> - <a
+href="toc.html">toc</a></div> <hr noshade width="100%">
+</p>
+
+<h1 align=center>A. View Query Tutorial</h1>
+<p>
+Using the data view query you can query a view using an XPath expression to create a new
+view. 
+<br>
+The XPath expression defines a set of nodes. The nodes which match the expression are copied
+into a new view.
+<br>
+The valid data view queries form a subset of the possible XPath queries.
+<br>
+Valid queries must match the following rules
+<ul>
+<li>the XPath query is always done on the root node, so relative queries are the same as absolute queries</li>
+</ul>
+</p>
+
+<p>
+Each view element has a corresponding xml element where the name of the view element is used as a tagname.
+<br>
+Each xml element has to following attributes. !! All the numbers used in the xpath query must be decimal numbers. !!
+<ul>
+<li>class ::= "DataFrame" | "DataEncodingField" | "MapField"</li>
+<li>bitStart ::= a decimal number</li>
+<li>bitEnd ::= a decimal number</li>
+<li>bitSize ::= a decimal number</li>
+<li>data ::= a string depending on the choosen DataEncoding (only present in DataEncodingField)</li>
+</ul>
+
+Suppose you have a simple view structure consisting of a root data frame and two data encoding field.
+Then the xml structure will look like this
+<br>
+<pre>
+&lt;aFrame class=&quot;DataFrame&quot; bitStart=0 bitEnd=80 bitSize=80&gt;
+	&lt;aField class=&quot;DataEncodingField&quot; bitStart=0 bitEnd=24 bitSize=24 data=&quot;001352&quot;/&gt;
+	&lt;anotherField class=&quot;DataEncodingField&quot; bitStart=24 bitEnd=80 bitSize=56 data=&quot;95ab081952bbc3&quot;/&gt;
+&lt;/aFrame&gt;
+</pre>
+</p>
+
+<h2 align=center>Example Queries</h2>
+	
+<p>
+All the examples below use the abbreviated XPath syntax.
+<br>
+Below are some common queries to get you started. For more complex ones you might
+want to consult the official XPath definition at http:\\www.w3.org\TR\xpath
+<br>
+In the example the libcap.str is used on a captured network traffic. The view queries are especially useful
+if you are analyzing huge repetitive data like network traffic.
+</p>
+
+<p>
+<code>/libcap</code>
+<br>
+Will match the root element of the view, and effectively does a clone of the view similar to View->Clone View.
+<p>
+
+<p>
+<code>/libcap/frame</code>
+<br>
+Will match all the frames of the libcap view.
+<p>
+
+<p>
+<code>/libcap/frame[3]</code>
+<br>
+Will match the third frame of the libcap view. This is <b>frame[2]</b> in the data view 
+because DataWorkshop starts counting from 0 and not 1. 
+<p>
+
+<p>
+<code>/libcap/frame/ethernetII-DIX/ipv4/total-length</code>
+<br>
+Will match all the total-length data fields of the ipv4 packet. Useful to extract a list of all packet sizes.
+<p>
+
+<p>
+<code>/libcap/frame/ethernetII-DIX/ipv4[./protocol/@data="TCP"]</code>
+<br>
+Will match all the ipv4 packets which have a TCP payload inside. The protocol data field is a map field which
+maps the protocol number to the String TCP.
+<p>
+
+<p>
+<code>/libcap/frame/ethernetII-DIX/ipv4[./total-length/@data>1000]</code>
+<br>
+Selects all ip frames which have a total-length > 1000 bytes. Although data is a String the query
+can convert the string into a number. But this only works if the string is in decimal notation. Hex Strings
+will give weird results.
+<p>
+
+<p>
+<div align=right><a href="xmlFiles.html">next</a> - <a 
+href="credits.html">previous</a> - <a
+href="toc.html">toc</a></div> <hr noshade width="100%">
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

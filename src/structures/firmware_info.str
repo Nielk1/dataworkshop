@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'><RootStatement label="firmware_info">
+<Children>
+<DataEncodingFieldDefinition label="jp_bu_check_markers">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="24"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="bu_loadapp_64k">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="32" littleEndian="true" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="_fletcher8">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="232"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="bu_warmloader">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="312"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="bu_check_markers">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="992"/>
+</DataEncodingFieldDefinition>
+<UntilDelimiterFieldDefinition label="boot_normal">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<USAsciiEncoding/>
+<Data bitSize="32" data="42554421"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterFieldDefinition>
+<DataEncodingFieldDefinition label="magic">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="struct_ver">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="board_type">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="true" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="32" littleEndian="true" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="version_min">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="version_maj">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="compiler_ver_min">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="compiler_ver_maj">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="flags">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="build_timestamp">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="32" littleEndian="true" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="mb_type">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="32" littleEndian="true" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="88"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="user_defined">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="64"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="program_name">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<StaticLengthDefinition length="160"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="header_crc32">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="32" littleEndian="true" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+</Children>
+<Author>Tito Brasolin</Author>
+<Description>Offsets on Rabbit 4000 (approximate offsets indicated with *)
+
+  0x0000 jp bu_check_markers
+  0x0003 bu_loadapp_64k
+  0x0007 _fletcher8 (helper function)
+  0x0027* bu_warmloader
+  0x0047* bu_check_markers
+  0x00C7* .boot_normal
+    BIOS
+    BIOS Vars
+    firmware_info
+    More BIOS
+0x0400 Maximum address for boot loader</Description>
+</RootStatement>

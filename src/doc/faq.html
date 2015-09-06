@@ -1,0 +1,164 @@
+<html>
+<head>
+</head>
+<body>
+
+<p>
+<div align=right><a href="contact.html">next</a> - <a 
+href="configuration.html">previous</a> - <a 
+href="toc.html">toc</a></div>
+<hr noshade width="100%">
+</p>
+
+<h1 align=center>3. Frequently Asked Questions</h1>
+
+<h3>1.Technical Terms</h3>
+
+<h4>1.1 Big Endian / Little Endian</h4>
+There are two different models for storing a multiple byte number.&nbsp;
+A processor using the big endian model (e.g Motorola 68k, PowerPC, Java VM) 
+stores the
+most significant byte first. In the little endian model (e.g. x86) the least 
+significant byte is stored first in memory.
+<br>
+<i>
+Example: Suppose you have the hex number 0x12345678. On a big endian processor
+the number looks like this in memory: 0x12 0x34 0x56 0x78, whereas a little
+endian processor stores the number like this 0x78 0x56 0x34 0x12.
+</i>
+
+<h4>1.2 Encoding negative numbers</h4>
+<b>Two Complement</b><br>
+The standard way to encode negative numbers is to use the two complement. 
+A positive number has the most significant bit set to false, the other bits 
+are used to encode the number.
+<br>
+A negative number has the most significant bit set to true, the other bits are 
+used the encode the two complement of the number. You calculate the two 
+complement of a number by doing a not on the number and adding one. By doing 
+this on the whole number, including sign, you negate the number.
+<br>
+The reason for this rather complicated encoding is to make addition and 
+subtraction easier. Instead of having to evaluate the sign 
+bit and decide how to combine the two numbers, you can just do a binary 
+addition. Subtraction is done by negating the second number before addition.
+<i>
+Example: Suppose we encode the range -128 to +127 in one byte. +15 is 
+encoded 00001111 but -15 is encoded 11110001 and not 10001111. Now we negate 
+-15 to get +15. First the not operation: 11110001 -> not -> 00001110 and then 
+adding one: 00001110 -> +1 -> 00001111.
+</i>
+<br>
+<br>
+<b>Bias</b><br>
+You convert a biased number to a normal signed number by subtracting the bias.
+<br>
+<i>
+Example: you have a byte with the value 240. The bias used for this encoding 
+was 127 (the bias may
+be choosen arbitrarily but for one byte 127 seem useful as it divides the byte 
+into a similar
+size positive and negative chunks). So the real number is 240 - 127 = +13.
+e.g. The exponent in IEEE754 Floating Point Numbers is encoded using a bias
+</i>
+<br>
+<br>
+<b>Sign Bit</b><br>
+One bit in the number is declared as the sign bit. If this bit is negative the 
+number is negative
+and vice versa.
+e.g. The mantisse in IEEE754 Floating Point Number is encoded using a sign bit.
+
+<h3>2. Performance </h3>
+<h4>2.1. General Tips</h4>
+<ul>
+<li>use few dynamic views with unlocked offset, as they are recompiled each time 
+the offset changes</li>
+<li>use small structure definitions, the bigger the definition the slower the editing</li>
+<li>disable "Compile View" for structure definitions which you dont need at the moment</li>
+</ul>
+
+<h4> Editing the structure definitions takes very long because of the constant 
+recompilation</h4>
+Disable "Compile View" then enable it after you finished editing the structure definition.
+
+<h4> Out of Memory </h4>
+For editing large files you have to increase the maximal heap memory of the Java 
+Virtual Machine. To set the maximal heap to 300MB in the standard JRE 1.4.0 
+from Sun the commandLine option is: <i>java -Xmx300m -jar 
+DataWorkshop.jar</i>. 
+
+<h3>3. How do I .. ?</h3>
+
+<h3>4. Common Problems </h3>
+<h4>4.1 Structure definition is compiled incorrectly</h4>
+Make sure the endianess of the structure corresponds to the endianess of the 
+data you want to view. The endianess cannot be guessed by the programm and is 
+not directly linked to the data.
+In some cases the definition of the format mentions the endianess (e.g. Java 
+class files are always BigEndian no matter on what processor java is run. The 
+same is true for TCP/IP network traffic).
+
+<h4>4.2 Crash on startup</h4>
+Try deleting dataWorkshop.xml and editor.xml. These are configuration files 
+for DataWorkshop which might be corrupted due to bugs in DataWorkshop. If they 
+are not found at startup the are restored to their default values.
+
+<h4>4.3 Cannot enter data in find and replace dialog</h4>
+Below the find and replace data fields are two information bars displaying offset, range and size. 
+The default size is 0, so no data is displayed in the field. If you change the size you will be able to enter data.
+
+<h4>4.4 Cannot diff data, the "diff data" button in the dialog is disabled</h4>
+The button only becomes enabled if the selection range in the two data sets has the same size.
+
+<h4>4.5. While Editing the structure definition there are constantly freezes and crashes</h4>
+I know this part of the code is quite unstable and I am working on it. 
+<br>
+One workaround is to disable the "Compile View" checkbox while you are still working on the structure definition
+and then reenable the it after you are finished editing the structure definition.
+
+<h3>5. Known Bugs </h3>
+<h4>Look and Feels changes</h4>
+Although it is possible to change the look and feel of DataWorkshop it it not advised. If you experience any
+problems in the GUI swith to the default Metal Look and Feel.
+
+<h3>6. Errors </h3>
+<h4>Could not transform Data</h4>
+
+<p>
+<hr noshade width="100%">
+<div align=right><a href="contact.html">next</a> - <a 
+href="configuration.html">previous</a> - <a href="toc.html">toc</a></div>
+</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

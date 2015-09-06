@@ -1,0 +1,26 @@
+<!--
+    Description:
+-->
+<!ENTITY % Data SYSTEM "Data.dtd">
+%Data;
+<!ENTITY % Encoding.dtd SYSTEM "Encoding.dtd">
+%Encoding.dtd;
+
+<!ELEMENT DataViewOptions EMPTY >
+<!ATTLIST DataViewOptions
+    bitsPerLine   CDATA #REQUIRED
+    linesPerPage      CDATA #REQUIRED
+    renderOffset      CDATA #REQUIRED
+    renderSize      CDATA #REQUIRED
+>
+
+<!ELEMENT StringToDataMapping ((%Encoding;), Mapping) >
+<!ELEMENT Mapping (Map)* >
+<!ATTLIST Mapping
+    bitSize      CDATA #REQUIRED
+>
+<!ELEMENT Map EMPTY >
+<!ATTLIST Map
+    name      CDATA #REQUIRED
+    encodedData      CDATA #REQUIRED
+>

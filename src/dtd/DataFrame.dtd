@@ -1,0 +1,32 @@
+<!--
+    Description:
+-->
+
+<!ENTITY % Shared.dtd SYSTEM "Shared.dtd">
+%Shared.dtd;
+<!ENTITY % ViewDefinitionElement "DataFrame | DataEncodingField | MapField">
+
+<!ELEMENT DataFrame (Children)>
+<!ATTLIST DataFrame
+   label    CDATA   #REQUIRED 
+   bitOffset    CDATA   #REQUIRED 
+   bitSize    CDATA   #REQUIRED 
+   arrayIndex    CDATA   #REQUIRED 
+>
+<!ELEMENT Children (%ViewDefinitionElement;)* >
+
+<!ELEMENT DataEncodingField (%Encoding;)>
+<!ATTLIST DataEncodingField
+   label    CDATA   #REQUIRED 
+   bitOffset    CDATA   #REQUIRED 
+   bitSize    CDATA   #REQUIRED 
+   arrayIndex    CDATA   #REQUIRED 
+>
+
+<!ELEMENT MapField (StringToDataMapping)>
+<!ATTLIST MapField
+   label    CDATA   #REQUIRED 
+   bitOffset    CDATA   #REQUIRED 
+   bitSize    CDATA   #REQUIRED 
+   arrayIndex    CDATA   #REQUIRED 
+>

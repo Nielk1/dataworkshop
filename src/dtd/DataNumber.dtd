@@ -1,0 +1,9 @@
+<!--
+    Description:
+-->
+<!ELEMENT DataNumber EMPTY>
+<!ATTLIST DataNumber
+    bitSize      CDATA #REQUIRED
+    signed       CDATA #REQUIRED
+    littleEndian CDATA #REQUIRED
+>

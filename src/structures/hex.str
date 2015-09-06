@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="Hex-View">
+<Children>
+<UntilDelimiterFieldDefinition label="hex">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<Data bitSize="0" data=""/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<Author>martin.pape@gmx.de</Author>
+<Description/>
+</RootStatement>

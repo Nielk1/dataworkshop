@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="PRC">
+<Children>
+<RepeatStatement label="Header">
+<Children>
+<DataEncodingFieldDefinition label="name">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<StaticLengthDefinition length="256"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="flags">
+<Children>
+<MapFieldDefinition label="0-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="1-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="2-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="3-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="4-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="5-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="6-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="7-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="beamable">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="9-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="10-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="11-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="12-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="13-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="14-bit-flag">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="excuteable">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="version">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="create-time">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="mod-time">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="backup-time">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="mod-num">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="app-info">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="sort-info">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="type">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="id">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="unique-id-seed">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="next-record-list">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="num-records">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="resource-header">
+<Children>
+<DataEncodingFieldDefinition label="type">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="id">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="offset">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="Header/num-records"/>
+<ModificationDefinition multiplication="1" addition="1"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<Author>martin.pape@gmx.de</Author>
+<Description>Based on information from the http://www.palmos.com/dev/support/docs/fileformats/FileFormatsTOC.html</Description>
+</RootStatement>

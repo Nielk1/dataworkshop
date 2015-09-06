@@ -1,0 +1,81 @@
+<html>
+<head>
+</head>
+<body>
+
+<p>
+<div align=right>next - <a 
+href="viewQueryTutorial.html">previous</a> - <a href="toc.html">toc</a></div> <hr 
+noshade width="100%">
+</p>
+
+<h1 align=center>B. XML-Files</h1>
+
+<p><b>WARNING</b></p>
+<i>
+Even though the data files are in xml and should be easy to 
+understand and modify it is nonetheless possible to corrupt them.
+If you corrupt dataWorkshop.xml or editor.xml DataWorkshop may crash on 
+startup. 
+In this case delete them, they will be restored to their default value next 
+time you exit DataWorkshop.
+</i>
+
+<p>
+All data in DataWorkshop (e.g options, structures etc.) is saved as 
+xml-tagged text. Some of the xml files are automatically created by the editor 
+(e.g. structures), others can be configured using the editor. But for the 
+power user it might be useful to edit the xml files by hand.
+<br>
+To make the most of the following sections the reader should be familiar with 
+xml. But even if he has no clue about xml he should be able to make some basic 
+changes to the files just by looking at the structure. This 
+is the beauty of xml.
+<br>
+For more indepth information you should consult the corresponding DTDs.
+</p>
+
+
+<a name="dataWorkshop.xml"><h2 align=center>dataWorkshop.xml</h2></a>
+
+<a name="editor.xml"><h2 align=center>editor.xml</h2></a>
+In the editor.xml file are options concerning the GUI.
+<br>
+<b>TransformMenu & CalulateMenu</b>
+<br>
+In the TransformMenu and the CalculateMenu you can reference Transformations 
+defined in the transformations directory. Entries under the TransformMenu will 
+modify the selected data and paste the result over the the current selection 
+whereas Entries under the CalculatorMenu will paste the result of the 
+Transformation to the DataClipboard
+
+<a name="transformations"><h2 align=center>Transformations</h2></a>
+Transformations are used to automatically modify the data. They are defined in 
+the transformations directory and bound into the editor by referencing them 
+from the editor.xml file.
+
+<a name="dataView"><h2 align="center">DataView</h2></a>
+
+<p>
+<hr noshade width="100%">
+<div align=right>next - <a 
+href="viewQueryTutorial.html">previous</a> - <a href="toc.html">toc</a></div>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

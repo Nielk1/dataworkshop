@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Fill With Ones" bitSize="1">
+<transformers>
+<Fill>
+<Data bitSize="1" data="80"/>
+</Fill>
+</transformers>
+</DataTransformation>

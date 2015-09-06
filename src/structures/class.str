@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="Class-View">
+<Children>
+<DataEncodingFieldDefinition label="signature">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="minor-version">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="major-version">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="constant-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="constant-pool">
+<Children>
+<RepeatStatement label="constant">
+<Children>
+<MapFieldDefinition label="tag">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="8">
+<Map name="Utf8" encodedData="01"/>
+<Map name="Integer" encodedData="03"/>
+<Map name="Float" encodedData="04"/>
+<Map name="Long" encodedData="05"/>
+<Map name="Double" encodedData="06"/>
+<Map name="Class" encodedData="07"/>
+<Map name="String" encodedData="08"/>
+<Map name="Fieldref" encodedData="09"/>
+<Map name="Methodref" encodedData="0A"/>
+<Map name="InterfaceMethodref" encodedData="0B"/>
+<Map name="NameAndType" encodedData="0C"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<CaseStatement label="choose-constant">
+<Children>
+<DataEncodingFieldDefinition label="class">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="string">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="integer">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="float">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="long">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="64"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="double">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="utf8">
+<Children>
+<DataEncodingFieldDefinition label="length">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="string">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="constant-pool/constant/choose-constant/utf8/length"/>
+<ModificationDefinition multiplication="8" addition="0"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="fieldref">
+<Children>
+<DataEncodingFieldDefinition label="classindex">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="name-and-type-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="methodref">
+<Children>
+<DataEncodingFieldDefinition label="classindex">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="name-and-type-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="interface-methodref">
+<Children>
+<DataEncodingFieldDefinition label="classindex">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="name-and-type-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="name-and-type">
+<Children>
+<DataEncodingFieldDefinition label="nameindex">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="descriptor-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="10" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="constant-pool/constant/tag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="8">
+<Map name="utf8" encodedData="01"/>
+<Map name="integer" encodedData="03"/>
+<Map name="float" encodedData="04"/>
+<Map name="long" encodedData="05"/>
+<Map name="double" encodedData="06"/>
+<Map name="class" encodedData="07"/>
+<Map name="string" encodedData="08"/>
+<Map name="fieldref" encodedData="09"/>
+<Map name="methodref" encodedData="0A"/>
+<Map name="interface-methodref" encodedData="0B"/>
+<Map name="name-and-type" encodedData="0C"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="constant-count"/>
+<ModificationDefinition multiplication="1" addition="-1"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="access-flags">
+<Children>
+<DataEncodingFieldDefinition label="reserved1">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="5"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="abstract">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="interface">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="reserved2">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="super">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="final">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="reserved3">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="public">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="this-class">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="super-class">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="interface-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="interface-pool">
+<Children>
+<RepeatStatement label="interface">
+<Children>
+<DataEncodingFieldDefinition label="interface">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="interface-count"/>
+<ModificationDefinition multiplication="1" addition="0"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="field-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="field-pool">
+<Children>
+<RepeatStatement label="field">
+<Children>
+<RepeatStatement label="access-flags">
+<Children>
+<DataEncodingFieldDefinition label="reserved1">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="transient">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="volatile">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="reserved2">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="final">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="static">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="protected">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="private">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="public">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="name-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="descriptor-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="attribute-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="attribute-info">
+<Children>
+<DataEncodingFieldDefinition label="attribute-name-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="attribute-length">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="info">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="field-pool/field/attribute-info/attribute-length"/>
+<ModificationDefinition multiplication="8" addition="0"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="field-pool/field/attribute-count"/>
+<ModificationDefinition multiplication="1" addition="0"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="field-count"/>
+<ModificationDefinition multiplication="1" addition="0"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="method-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="method-pool">
+<Children>
+<RepeatStatement label="method">
+<Children>
+<RepeatStatement label="access-flags">
+<Children>
+<DataEncodingFieldDefinition label="reserved1">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="transient">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="volatile">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="reserved2">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="final">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="static">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="protected">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="private">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<MapFieldDefinition label="public">
+<StringToDataMappingDefinition>
+<IntegerEncoding littleEndian="false" radix="2" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="no" encodedData="00"/>
+<Map name="yes" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="name-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="descriptor-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="attribute-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="attribute-info">
+<Children>
+<DataEncodingFieldDefinition label="attribute-name-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="attribute-length">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="info">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="method-pool/method/attribute-info/attribute-length"/>
+<ModificationDefinition multiplication="8" addition="0"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="method-pool/method/attribute-count"/>
+<ModificationDefinition multiplication="1" addition="0"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="method-count"/>
+<ModificationDefinition multiplication="1" addition="0"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="attribute-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="attribute-pool">
+<Children>
+<RepeatStatement label="attribute">
+<Children>
+<DataEncodingFieldDefinition label="attribute-name-index">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="attribute-length">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="info">
+<EncodingDefinition visible="true">
+<IntegerEncoding littleEndian="false" radix="16" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="attribute-pool/attribute/attribute-length"/>
+<ModificationDefinition multiplication="8" addition="0"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" signed="false" path="attribute-count"/>
+<ModificationDefinition multiplication="1" addition="0"/>
+</PointerLengthDefinition>
+</RepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<Author>martin.pape@gmx.de</Author>
+<Description/>
+</RootStatement>

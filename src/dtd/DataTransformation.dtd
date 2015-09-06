@@ -1,0 +1,122 @@
+<!--
+    Description:
+-->
+<!ENTITY % DataNumber.dtd SYSTEM "DataNumber.dtd">
+%DataNumber.dtd;
+<!ENTITY % Data.dtd SYSTEM "Data.dtd">
+%Data.dtd;
+<!ENTITY % Encoding.dtd SYSTEM "Encoding.dtd">
+%Encoding.dtd;
+
+<!ELEMENT DataTransformation (transformers)>
+<!ATTLIST DataTransformation
+   name      CDATA #REQUIRED
+   bitSize   CDATA #REQUIRED
+>
+
+<!ELEMENT transformers (AddValue | CRC32 | Convert | Decrease | Fill | FindAndReplace | Increase | Negate |Not | Rotate | Shift | SwapByteOrder | Translate)*>
+<!ATTLIST transformers
+>
+
+<!--
+-->
+<!ELEMENT AddValue (DataNumber)>
+<!ATTLIST AddValue
+   value     CDATA #REQUIRED
+>
+
+<!--
+    Calcutes a CRC-32 Checksum on the data.
+-->
+<!ELEMENT CRC32 EMPTY>
+
+<!--
+    Convert the data to a different format. The data is converted to a String 
+    using the encoder. Then this String is converted back into data using the 
+    decoder.
+-->
+<!ELEMENT Convert (Encoder, Decoder)>
+<!ELEMENT Encoder (%Encoding;)>
+<!ELEMENT Decoder (%Encoding;)>
+
+<!--
+-->
+<!ELEMENT Decrease EMPTY>
+<!ATTLIST Decrease
+   value     CDATA #REQUIRED  
+>
+
+<!--
+    Fills the data with a pattern.
+-->
+<!ELEMENT Fill (Data)>
+
+<!--
+    Fills the data with a pattern.
+-->
+<!ELEMENT FindAndReplace ((%Encoding;), Data, (%Encoding;), Data)>
+<!ATTLIST FindAndReplace
+   stepSize     CDATA #REQUIRED 
+>
+
+<!--
+-->
+<!ELEMENT Increase EMPTY>
+<!ATTLIST Increase
+   value     CDATA #REQUIRED  
+>
+
+<!--
+    Does a 2-complement on the data.
+-->
+<!ELEMENT Negate EMPTY>
+
+<!--
+    Does a bitwise not on the data.
+-->
+<!ELEMENT Not EMPTY>
+
+<!--
+    Rotates the selected Data n bits. 
+    bits > 0, the data is shifted "bits" to the right
+    bits < 0, the data is shifted "bits" to the left.
+-->
+<!ELEMENT Rotate EMPTY>
+<!ATTLIST Rotate
+   bits     CDATA #REQUIRED
+>
+
+<!--
+    Shift the selected Data n bits and fill with either 1 or 0
+    bits > 0, the data is shifted "bits" to the right
+    bits < 0, the data is shifted "bits" to the left.
+-->
+<!ELEMENT Shift EMPTY>
+<!ATTLIST Shift
+   bits     CDATA #REQUIRED  
+   fillWithOnes  CDATA #REQUIRED
+>
+
+<!--
+    Changes the byte order. Byte 0 is exchanged with byte n, byte 1 is exchanged 
+    with byte n - 1, and so on. 
+-->
+<!ELEMENT SwapByteOrder EMPTY>
+<!ATTLIST SwapByteOrder
+   swappedBytes     CDATA #REQUIRED  
+>
+
+<!--
+-->
+<!ELEMENT Translate (DataToDataMapping)>
+
+<!ELEMENT DataToDataMapping ((%Encoding;), Mapping) >
+<!ELEMENT Mapping (Map)* >
+<!ATTLIST Mapping
+    bitSize      CDATA #REQUIRED
+>
+<!ELEMENT Map EMPTY >
+<!ATTLIST Map
+    from      CDATA #REQUIRED
+    to        CDATA #REQUIRED
+>

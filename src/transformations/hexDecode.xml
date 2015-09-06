@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Hex Decode" bitSize="8">
+<transformers>
+<Convert>
+<Encoder>
+<USAsciiEncoding/>
+</Encoder>
+<Decoder>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="4" signed="false"/>
+</Decoder>
+</Convert>
+</transformers>
+</DataTransformation>

@@ -1,0 +1,52 @@
+<xsl:stylesheet version = '1.0'
+     xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
+
+<xsl:output method="text"/>
+
+<xsl:template match="/">		
+INDEX
+<xsl:apply-templates mode="toc"/>
+
+DATA
+<xsl:apply-templates mode="body"/>	
+</xsl:template>
+
+<xsl:template match="//*[@class='DataFrame'] | //*[@class='DataEncodingField'] | //*[@class='MapField']" mode="toc">
+<xsl:value-of select="@bitStart"/>
+<xsl:text>-</xsl:text><xsl:value-of select="@bitEnd"/>
+<xsl:text> </xsl:text>
+<xsl:value-of select="local-name(current())"/>
+<xsl:text> (</xsl:text><xsl:value-of select="@bitSize"/><xsl:text> Bits)</xsl:text>
+<xsl:text>
+</xsl:text>
+<xsl:apply-templates select="*[@class='DataFrame'] | *[@class='DataEncodingField'] | *[@class='MapField']" mode="toc"/>
+</xsl:template>
+
+<xsl:template match="//data" mode="toc"></xsl:template>
+
+<xsl:template match="//*[@class='DataFrame']" mode="body">
+<xsl:value-of select="local-name(current())"/>
+<xsl:apply-templates mode="body"/>
+</xsl:template>
+
+<xsl:template match="//*[@class='DataEncodingField'] | //*[@class='MapField']" mode="body">
+<xsl:value-of select="local-name(current())"/>
+<xsl:apply-templates select="data" mode="body"/>
+<xsl:text>
+</xsl:text>	
+</xsl:template>
+
+
+<xsl:template match="data" mode="body">
+<xsl:text>
+</xsl:text>
+<xsl:value-of select="@bitOffset"/>
+<xsl:text> </xsl:text><xsl:value-of select="text()"/>
+</xsl:template>
+
+</xsl:stylesheet>
+
+
+
+
+

@@ -1,0 +1,178 @@
+<html>
+<head>
+</head>
+<body>
+
+<div align=right><a href="menu.html">next</a> - <a 
+href="about.html">previous</a> - <a href="toc.html">toc</a></div>
+<hr noshade width="100%">
+
+<h1 align=center>2. Overview</h1>   
+
+This short tutorial will explain the basic features and ideas in DataWorkshop and hopefully get
+you started. For more indepth information consult the rest of this manual.
+
+<a name="BinaryEditor"><h3 align=center>Binary Editor</h3></a>
+
+<a name="LoadingData"><h3 align=center>Loading Data</h3></a>
+<p>
+Select Data->Open File from the window menu and choose the file you want to edit.
+<br>
+A dialog will popup where you can select the view template you want to use. 
+<br>
+A view template is a collection of structure definitions which are used to view the data. DataWorkshop tries to guess
+the most apropiate view templates by looking at the first few bytes of the data and the filename
+suffix. You can define your own view templates.
+<br>
+If you did not choose any special file you will only get the two default view templates 'Vanilla Hexeditor' 
+and 'Empty'. Select 'Vanilla Hexeditor' and click the OK Button.
+<br>
+The file will get loaded and the two view from the view template will be displayed in the center area
+of the editor window.
+</p>
+
+<p align="center"><img src="pics/editor.jpg" width="800" height="600"></p>
+
+<a name="StatusBar"><h3 align=center>Status Bar</h3></a>
+<p>
+At the bottom of the window you can see three info fields which display the current 
+selection offset, current selection range and the size of the opened data. You can 
+click on any fields and edit the values manually. <b>If you change the size field the
+data will get changed.</b> By increasing the size value zero bits get appended to the end 
+of the data, decreasing the size will result in the last bits of the data getting deleted.
+<br>
+All of them count <b>bits</b> and not 
+bytes. To make reading them simpler the default is to display them in the 
+format <i>bytes</i>.<i>bits</i>. You can choose other formats and other bases 
+(e.g. Binary, Decimal, Hex etc) using the <a href="menu.html#Tools->Preferences">Tools->Preferences</a> menu item. 
+<br>
+<i>Example: The selected BitRange starts at offset +0000000F.3 (0xF bytes and 
+3 bits)</i>
+</p>
+
+<p>
+Above the info fields is a single line view of the data. You can change the 
+number of single line views using <a href="menu.html#Tools->Preferences">Tools->Preferences</a>. 
+<br>
+On the left side is the corresponding data encoding which you can change
+and on the right side is the encoded data. The single line view always shows
+the data starting from the current selection offset. If you change the number in the
+offset field the single line view will change too.
+</p>
+
+
+<a name="Views"><h3 align=center>Views</h3></a>
+<p>
+The single line view can be used to edit the data but the display is very
+short and it has no structure. The more complex views are in the center
+area of the window. Dataworkshop has static views and dynamic views. 
+
+<h4 align=center>Static Views</h4></a>
+Static views consist of a view definition which is used to view the data. 
+The view definition is independent of the underlying data and will remain static if the data changes. 
+<br>
+You cannot directly edit view definitions, they can only be created as a result of the following
+actions: View->Clone View, View->Query View, Edit->Find All or Tools-> Diff Data.
+
+<h4 align=center>Dynamic Views</h4></a>
+A dynamic view consists of a structure definition and a corresponding view definition. The structure definition is
+compiled into the view definition each time the data changes. You can code your own
+<a href="structureDefinition.html">structure definition</a> to display custom data formats
+</p>
+
+<a name="DataEditing"><h3 align=center>Data Editing</h3></a>
+<p>
+One way to edit the data is by using the transform or calculate actions in the menu.
+They modify the data in a predefined way.
+<br>
+Both work on the current selection range, but transformations paste the transformation
+over the current selection, whereas calculations paste the result on the data clipboard.
+</p>
+
+<p>
+The other way to edit the data is using a view. 
+<br>
+If you click on a data encoding field in the a view a unit gets selected and is 
+highlighted blue. The selection offset and selection range change accordingly. 
+If you type some text on while the focus is on an data encoding field the selected
+unit gets highlighted red.  
+<br> 
+Red highlightning means the highlighted unit was not validated and the data 
+has not changed. If the cursor leaves the unit or return is pressed the data 
+gets validated.
+</p>
+
+<p>
+<a name="Glossary"><h3 align=center>Glossary</h3></a>
+
+<dl>
+<dt><b>Calculator</b></dt>
+<dd>Copies data to the DataClipboard and modifies the copied data in a 
+predefined way. Calculators can be user defined by configuring 
+DataTransformers.</dd>
+
+<dt><b>Data Clipboard</b></dt>
+<dd>Clipboard used for copy and paste actions on the data. Can be used as 
+scrappaper but the DataView is not very configurable and simple.</dd>
+
+<dt><b>Data Encoding</b></dt>
+<dd>Encodes data into string and decodes data from string</dd>
+
+<dt><b>Data Transformer</b></dt>
+<dd>Basic building block to define DataTransformations.</dd>
+
+<dt><b>Dynamic Data View</b></dt>
+<dd></dd>
+
+<dt><b>Granularity</b></dt>
+<dd>Amount a value is increased or decreased.</dd>
+
+<dt><b>Radix</b></dt>
+<dd>The base of a number system, e.g. 2 for binary, 10 for decimal and 16 for 
+hexadecimal</dd>
+
+<dt><b>Static Data View</b></dt>
+<dd></dd>
+
+<dt><b>Structure Definition</b></dt>
+<dd>Tree structure composed of structure definition elements. The 
+structure definition is compiled into a view.</dd>
+
+<dt><b>View Definition</b></dt>
+<dd>Tree structure composed of view definition elements. The 
+view definition is used to display and edit the data.</dd>
+
+<dt><b>View Template</b></dt>
+<dd>Collection of several structure definitions.</dd>
+
+<dt><b>Data Transformation</b></dt>
+<dd>Modifies the data in a predefined way. Each DataTransformation is a xml 
+file in the transformation directory.</dd>
+</dl>
+</p>
+
+<p>
+<hr noshade width="100%">
+<div align=right><a href="menu.html">next</a> - <a 
+href="about.html">previous</a> - <a href="toc.html">toc</a></div>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

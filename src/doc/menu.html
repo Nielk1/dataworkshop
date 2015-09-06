@@ -1,0 +1,361 @@
+<html>
+<head>
+</head>
+<body>
+
+<div align=right><a href="view.html">next</a> - <a 
+href="overview.html">previous</a> - <a href="toc.html">toc</a></div>
+<hr noshade width="100%">
+
+<h1 align=center>2.1. Menu</h1>
+<a name="DataMenu"><h3 align=center>Data</h3></a>
+<p>
+<b>Data -> New</b>
+<br>
+Creates new zero length data.
+</p>
+
+<p>
+<b>Data -> Open File</b>
+<br>
+Opens a binary file and display data. 
+</p>
+
+<p>
+<b>Data -> Open Data Object</b>
+<br>
+Opens a data object file and display data. This can be used to read in hexdumps.
+</p>
+
+<p>
+<b>Data -> Open Socket</b>
+<br>
+Listen to socket and display incoming data
+</p>
+
+<p>
+<b>Data -> Save File</b>
+<br>
+Save the current data as a flat binary file. The filesize is rounded to the 
+next byte boundary and padded with zero bits.
+</p>
+
+<p>
+<b>Data -> Save File As</b>
+<br>
+Saves th current Data as a flat binary file. The filesize is rounded to the 
+next byte boundary and padded with zero bits.
+</p>
+
+<p>
+<b>Data -> Write To Socket</b>
+<br>
+Write selected data to previously opened socket. The filesize is rounded to 
+the next byte boundary and padded with zero bits.
+</p>
+
+<p>
+<b>Data -> Close</b>
+<br>
+Closes the currently selected project
+</p>
+
+<p>
+<b>Data -> Export Data</b>
+<br>
+Saves the current data as text using a user defined data encoding.
+</p>
+
+<p>
+<b>Data -> Import Data</b>
+<br>
+Opens a text file and converts the text into binary data using a user defined data encoding.
+</p>
+
+<p>
+<b>Data -> Exit</b>
+<br>
+Closes all projects and exit. Save workbench.xml and options.xml
+</p>
+
+<p><a name="EditMenu"><h3 align=center>Edit</h3></a>
+</p>
+
+<p>
+<b>Edit -> Undo</b>
+<br>
+</p>
+
+<p>
+<b>Edit -> Redo</b>
+<br>
+</p>
+
+<p>
+<b>Edit -> Cut</b>
+<br>
+Deletes the selected data range and copies it onto the data clipboard.
+</p>
+
+<p>
+<b>Edit -> Copy</b>
+<br>
+Copies the selected data range onto the data clipboard.
+</p>
+
+<p>
+<b>Edit -> Paste</b>
+<br>
+Copies the content of the data clipboard over the currently selected data range.
+</p>
+
+<p>
+<b>Edit -> Delete</b>
+<br>
+Deletes the selected data range.
+</p>
+
+<p>
+<b>Edit -> Unselect</b>
+<br>
+Sets the selected data range to zero. The selection offset stays the same.
+</p>
+
+<p>
+<b>Edit -> Select All</b>
+<br>
+Selects the complete data.
+</p>
+
+<p>
+<b>Edit -> Define Find And Replace</b>
+<p align=center><img src=pics/searchreplace.jpg width=456 height=345></p> 
+Here you can define the search and find data used by the find and replace 
+actions. Granularity defines the number of bits skipped if the search was 
+successful or unsucessful. 
+<br>
+The search data and the replace data field are empty at the beginning. You have to
+increase to size field to be able to enter data by keyboard.
+</p>
+
+<p>
+<b>Edit -> Find Next</b>
+<br>
+Search forward for next match, starting at the current offset.
+</p>
+
+<p>
+<b>Edit -> Find Previous</b>
+<br>
+Search backwards for next match, starting at the current offset.
+</p>
+
+<p>
+<b>Edit -> Find All</b>
+<br>
+Search current data selection for all matches and display results in new static
+data view.
+</p>
+
+<p>
+<b>Edit -> Replace</b>
+<br>
+If the current data selection equals search data replace it with replace data.
+</p>
+
+<p>
+<b>Edit -> Replace All</b>
+<br>
+Search current data selection and replace all found matches.
+</p>
+</p>
+
+<a name="Transform"><h3 align=center>Transform</h3></a>
+
+<a name="Calculate"><h3 align=center>Calculate</h3></a>
+
+<a name="ViewMenu"><h3 align=center>View</h3></a>
+<p>
+<a name="View->ExportView"><b>View -> Export View</b></a>
+<br>
+This is just a shortcut for the more complex Export View. The view is saved 
+using the xml_stripped stylsheet.
+</p>
+
+<p>
+<a name="View->ExportViewAs"><b>View -> Export View As</b></a>
+<p align="center"><img src="pics/exportDataView.jpg" width="465" 
+height="182"></p>
+Export the selected data view. Before saving the data view it gets processed by 
+an XSLT stylesheet. At the moment there 4 different stylesheets defined. 
+<ul>
+    <li>xml: just a dummy, will do no processing and save the complete data view
+information as xml</li>
+    <li>xml_stripped: save only the field/frame names and the data (useful for converting binary data into xml tagged text)</li>
+    <li>html: a nice html view of the data including an index</li>
+    <li>text: a simple text view of the data, including an index</li>
+</ul>
+If you define your own stylesheets just copy them into the DataViewStylesheet 
+directory
+and they will get added automatically when you restart DataWorkshop.
+<br>
+<i>
+Example: The selected data view is saved as html with 10 bytes of data per line. 
+</i>
+</p>
+
+<p>
+<b>View -> Query View</b>
+<br>
+This dialog accepts a XPath query. The current view is serialized into xml, then the xpath query is 
+evaluated and the result nodes of the query a pasted into a new static data view.
+Can be used to search or filter a complex, repetetive data view.
+There is a short <a href="viewQuery.html">View Query tutorial</a> in the Appendix of this manual
+</p>
+
+<p>
+<a name="View->ConfigureView"><b>View -> Configure View</b></a>
+<p align="center"><img src="pics/dataViewOptions.jpg" width="235" 
+height="276"></p> 
+You can configure the data encoding field layout, e.g. the size of the data which
+should be displayed at once. 
+<br>
+<i>Example: Each data encoding field displays a 0x10 x 0xA byte area. To see more data
+the view must be scrolled</i>
+</p>
+
+<p>
+<b>View -> Open View Definition</b>
+</p>
+
+<p>
+<b>View -> Save View Definition As</b>
+</p>
+
+<p>
+<b>View -> Clone View Definition</b>
+<br>
+Creates a copy of the current view. Useful to get a snapshot of a dynamic data view.
+</p>
+
+<p>
+<b>View -> New Structure</b>
+<br>
+Creates a new dynamic view with an empty structure.
+</p>
+
+<p>
+<b>View -> Open Structure</b>
+<br>
+Opens a structure definition and creates a new dynamic view using this structure definition.
+The structure definition will bet set to the <b>current selection offset</b> and not to the start of the data
+</p>
+
+<p>
+<b>View -> Save Structure</b>
+<br>
+Saves the structure of the currently selected dynamic view.
+</p>
+
+<p>
+<b>View -> Save Structure As</b>
+<br>
+Saves the structure of the currently selected dynamic view.
+</p>
+
+<p>
+<b>View -> Recompile Structure</b>
+<br>
+Complete recompilation of the selected dynamic view. Usually this should not be 
+necessary but in case the automatic recompile fails (which uses a caching mechanism 
+for speed and usability reasons) this might be useful.
+</p>
+
+
+<a name="Tools"><h3 align=center>Tools</h3></a>
+<p>
+<b>Tools -> DataClipboard</b>
+<br>
+Displays the content of the DataClipboard. If you resize the 
+dialog the layout of the data is automatically adjusted.
+</p>
+
+<p>
+<b>Tools -> TextClipboard</b>
+<p align=center><img src=pics/textClipboard.jpg width=578 height=226></p>
+<br>
+Here you can enter text manually or by using copy and paste and convert the text into data. 
+The data is generated data is pasted into the DataClipboard. 
+</p>
+
+<p>
+<b>Tools -> Encoding Converter</b>
+</p>
+
+<p>
+<b>Tools -> View Definition Palette</b>
+<br>
+The view definition palette contains common view definition elements which are used in a lot of different 
+definitions. You can copy and paste them into the definition you are currently working on to speed up
+constructing it.
+</p>
+
+<p>
+<b>Tools -> Diff Data</b>
+<p align=center><img src=pics/diffdata.jpg width=578 height=266></p>
+Find differences between data in selected project and other projects or 
+DataClipboard. The selected bit range in both data sources must be the same 
+size.
+<br>
+<i>
+Example: The selected bit range in the project Data.class (offset:12.0 
+range:58.0) is compared against a bit range on the clipboard (offset:0.0 
+range:58.0). The differences are displayed in hex bytes.
+</i>
+</p>
+
+<p>
+<b><a name="Tools->Preferences">Tools -> Preferences</a></b>
+</p>
+
+
+<a name="Help"><h3 align=center>Help</h3></a>
+<p>
+<b>Help -> User Manual</b>
+</p>
+
+<p>
+<b>Help -> About</b>
+<br>
+</p>
+
+<hr noshade width="100%">
+<div align=right><a href="view.html">next</a> - <a 
+href="overview.html">previous</a> - <a href="toc.html">toc</a></div>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

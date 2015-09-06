@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Not" bitSize="1">
+<transformers>
+<Not/>
+</transformers>
+</DataTransformation>

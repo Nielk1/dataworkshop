@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Rot 13 Decoder" bitSize="8">
+<transformers>
+<AddValue value="-13">
+<DataNumber bitSize="8" signed="false" littleEndian="false"/>
+</AddValue>
+</transformers>
+</DataTransformation>

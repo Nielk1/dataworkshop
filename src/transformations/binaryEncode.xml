@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Binary Encode" bitSize="1">
+<transformers>
+<Convert>
+<Encoder>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</Encoder>
+<Decoder>
+<USAsciiEncoding/>
+</Decoder>
+</Convert>
+</transformers>
+</DataTransformation>

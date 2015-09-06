@@ -1,0 +1,8 @@
+<!--
+    Description:
+-->
+<!ELEMENT Data EMPTY >
+<!ATTLIST Data
+    bitSize      CDATA #REQUIRED
+	data 			CDATA #REQUIRED
+>

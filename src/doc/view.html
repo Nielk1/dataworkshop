@@ -1,0 +1,143 @@
+<html>
+<head>
+</head>
+<body>
+<p>
+<div align="right"><a href="structureDefinition.html">next</a> - <a 
+href="menu.html">previous</a> - <a href="toc.html">toc</a></div>
+<hr noshade width="100%">
+</p>
+
+<h1 align=center>2.2. View</h1>   
+The view displays the data and can be used to edit the data and change the
+current data selection.
+<p align="center"><img src="pics/view.jpg" width="800" height="600"></p>
+<p>
+<br>
+A view is a tree structure consisting of view elements. There are two types of elements:
+data frames and data fields.
+<br>
+Data frames may contain other data frames or data fields. Data fields are leaves in the tree
+structure and cannot contains other view elements.
+<br>
+</p>
+
+<p>
+The view is divided into a index view on the left side and the data view on the right side.
+<br>
+<b>Index View</b><br>
+The Index views displays the complete view structure but without the data. Only the View elements are displayed.
+The selected view element is the root element of the view displayed on the right side.
+<br>
+<br>
+<b>Data View</b><br>
+The Data View displays one or multiple view elements in a tree structure. 
+<br>
+The data view can be configured under <a href="menu.html#View->ConfigureView">View->Configure View</a>.
+You can enable/disable offset and size information and configure the layout of the data fields, e.g. how many
+bits of data are displayed per line and per page.  
+<br>
+If there is only a single data field in the data view the layout information is ignored and 
+the data view is sized according to the available space.
+<br>
+The data fields can be used to edit the data. You can start and stop the editing by pressing return while a data field 
+is selected.
+<br>
+<br>
+There are two type of data fields: data encoding fields and map fields.
+<br>
+Data encoding fields are text areas were you can modify the data like in a texteditor. The data encoding 
+used in the field defines how data is displayed and how the characters entered via the keyboard 
+are converted into data. If you do not know which data encoding is used in specific data encoding field 
+move the mouse pointer onto the field and wait till the tooltip pops up. It will give you informtation concerning 
+the data encoding.
+<br>
+If you are in editing mode the currently selected unit is highlighted blue in the data encoding field. If the unit is highlighted 
+red the changes you see on the screen have not been validated.
+</p>
+
+<a name="KeyBindings"><h2 align="center"> KeyBindings</h2></a>
+
+Here are the keybindings and you better use them because they were a royal pain in the ass
+to code.
+
+<h3> Move Cursor</h3>
+<table border>		
+        <tr><th>Keys</th><th>Action</th></tr>
+		<tr><td>Cursor Right</td><td>Next Input Point</td></tr>
+		<tr><td>Cursor Left</td><td>Previous Input Point</td></tr>
+		<tr><td>Cursor Down</td><td>Next Line</td></tr>
+		<tr><td>Cursor Up</td><td>Previous Line</td></tr>
+        <tr><td>Home</td><td>Start of Line</td></tr>
+        <tr><td>End</td><td>End of Line</td></tr>
+        <tr><td>Ctrl + Home</td><td>Start of Field</td></tr>
+        <tr><td>Ctrl + End</td><td>End of Field</td></tr>
+        <tr><td>Delete</td><td>Delete Char</td></tr>
+        <tr><td>Backspace</td><td>Deleted previous Char</td></tr>
+        <tr><td>Page Up</td><td>Scroll one Page Up</td></tr>
+        <tr><td>Page Down</td><td>Scroll one Page Down</td></tr>
+</table>
+
+<h3> Change Selection</h3>
+<table border>		
+        <tr><th>Keys</th><th>Action</th></tr>
+	<tr><td>Shift + Cursor Right</td><td>Extend Selection one Unit to the 
+Right</td></tr>
+	<tr><td>Shift + Cursor Left</td><td>Extend Selection one Unit to the 
+Left</td></tr>
+	<tr><td>Shift + Cursor Down</td><td>Extend Selection one Line down</td></tr>
+	<tr><td>Shift + Cursor Up</td><td>Extend Selection one Line up</td></tr>
+        <tr><td>Shift + Page Up</td><td>Extend Selection from current Unit one 
+Page Up</td></tr>
+        <tr><td>Shift + Page Down</td><td>Extend Selection from current Unit 
+one Page Down</td></tr>
+        <tr><td>Shift + Home</td><td>Select from current Unit to First Unit in 
+Line</td></tr>
+        <tr><td>Shift + End</td><td>Select from current Unit to Last Unit in 
+Line</td></tr>
+        <tr><td>Shift + Ctrl + Home</td><td>Select from current Unit to Start 
+of Field</td></tr>
+        <tr><td>Shfit + Ctrl + End</td><td>Select from current Unit to End of 
+Field</td></tr>
+        <tr><td>Ctrl + L</td><td>Select current Line</td></tr>
+        <tr><td>Ctrl + A</td><td>Select current Field</td></tr>
+        <tr><td>Return</td><td>Start or stop editing</td></tr>
+</table>
+
+<a name="MouseBindings"><h2 align="center">MouseBindings</h2></a>
+<table border>		
+        <tr><th>Mouse</th><th>Action</th></tr>
+	<tr><td>Singleclick LeftMouseButton</td><td>Select Unit</td></tr>
+	<tr><td>Doubleclick LeftMouseButton</td><td>Select current Line</td></tr>
+	<tr><td>Tripleclick LeftMouseButton</td><td>Select current Field</td></tr>
+</table>
+
+<p>
+<hr noshade width="100%">
+<div align=right><a href="structureDefinition.html">next</a> - <a 
+href="menu.html">previous</a> - <a href="toc.html">toc</a></div>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

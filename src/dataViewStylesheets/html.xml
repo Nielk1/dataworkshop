@@ -1,0 +1,88 @@
+<xsl:stylesheet version = '1.0'
+     xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
+
+<xsl:output method="html"/>
+
+<xsl:template match="/">	
+	<html>
+	<head>
+	</head>
+	<body>	
+
+	<h1 align="center">Index</h1>
+	<ul>
+	<xsl:apply-templates mode="toc"/>
+	</ul>
+
+	<h1 align="center">Data</h1>
+	<ul>
+	<xsl:apply-templates mode="body"/>
+	</ul>
+
+	</body>
+	</html>		
+
+</xsl:template>
+
+<xsl:template match="//*[@class='DataFrame']" mode="toc">
+	<li>
+	<a href="#{generate-id()}"><b><xsl:value-of select="local-name(current())"/></b></a>
+	<xsl:text> </xsl:text><xsl:value-of select="@bitStart"/>
+	<xsl:text>-</xsl:text><xsl:value-of select="@bitEnd"/>
+	<xsl:text> (</xsl:text><xsl:value-of select="@bitSize"/><xsl:text> 
+Bits)</xsl:text>
+	<ul>
+	<xsl:apply-templates mode="toc"/>
+	</ul>
+	</li>	
+</xsl:template>
+
+<xsl:template match="//*[@class='DataEncodingField'] | //*[@class='MapField']" mode="toc">
+	<li>	
+	<a href="#{generate-id()}"><b><xsl:value-of select="local-name(current())"/></b></a>
+	<xsl:text> </xsl:text><xsl:value-of select="@bitStart"/>
+	<xsl:text>-</xsl:text><xsl:value-of select="@bitEnd"/>
+	<xsl:text> (</xsl:text><xsl:value-of select="@bitSize"/><xsl:text> 
+Bits)</xsl:text>
+	<xsl:apply-templates mode="toc"/>	
+	</li>
+</xsl:template>
+
+<xsl:template match="//data" mode="toc">
+</xsl:template>
+
+<xsl:template match="//*[@class='DataFrame']" mode="body">
+	<li>
+	<b>	
+	<a name="{generate-id()}"><xsl:value-of select="local-name(current())"/></a>
+	</b>
+	<br/>
+	<ul>
+	<xsl:apply-templates mode="body"/>	
+	</ul>
+	</li>
+</xsl:template>
+
+<xsl:template match="//*[@class='DataEncodingField'] | //*[@class='MapField']" mode="body">
+	<li>
+	<p>
+	<b>	
+	<a name="{generate-id()}"><xsl:value-of select="local-name(current())"/></a>
+	</b>
+	<br/>
+	<xsl:apply-templates mode="body"/>	
+	</p>
+	</li>
+</xsl:template>
+
+<xsl:template match="data" mode="body">
+     <b><xsl:value-of select="@bitOffset"/></b>
+     <xsl:text> </xsl:text><xsl:value-of select="text()"/>
+     <br/>	
+</xsl:template>
+
+</xsl:stylesheet>
+
+
+
+

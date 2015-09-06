@@ -1,0 +1,53 @@
+<!--
+    Document   : DataConverter.dtd
+    Created on : 10. November 2002, 17:22
+    Author     : metheus
+    Description:
+        Purpose of the document follows.
+-->
+<!ENTITY % Shared SYSTEM "Shared.dtd">
+%Shared;
+
+<!ELEMENT DataWorkshop (DefaultEncoding, IntegerFormatFactory, DefinitionNodeCompilerOptions, DataRecognizer, DataViewOptions) >
+
+<!ELEMENT DefaultEncoding (%Encoding;) >
+
+<!ELEMENT IntegerFormatFactory EMPTY >
+<!ATTLIST IntegerFormatFactory
+    base      CDATA #REQUIRED
+    offset   CDATA #REQUIRED
+>
+
+<!ELEMENT DefinitionNodeCompilerOptions EMPTY >
+<!ATTLIST DefinitionNodeCompilerOptions
+    pointerStructureWarning      CDATA #REQUIRED
+    pointerStructureThreshold   CDATA #REQUIRED
+>
+
+<!--
+    The DataRecognizer tries to guess the best structures to use when
+    a new data file is opened.
+-->
+<!ELEMENT DataRecognizer (DataSignatureTemplates, FilenameSuffixTemplates, DefaultTemplates) >
+<!ELEMENT DataSignatureTemplates (DataSignatureTemplate)+ >
+<!ELEMENT DataSignatureTemplate (Structures, Data) >
+<!ATTLIST DataSignatureTemplate
+    name      CDATA #REQUIRED
+>
+<!ELEMENT Structures (Structure)* >
+<!ELEMENT Structure (#PCDATA) >
+
+<!ELEMENT FilenameSuffixTemplates (FilenameSuffixTemplate)+ >
+<!ELEMENT FilenameSuffixTemplate (Structures, Suffix) >
+<!ATTLIST FilenameSuffixTemplate
+     name      CDATA #REQUIRED
+>
+<!ELEMENT Suffix (#PCDATA) >
+
+<!ELEMENT Signature (#PCDATA) >
+<!ELEMENT DefaultTemplates (DefaultTemplate)* >
+<!ELEMENT DefaultTemplate (Structures)* >
+<!ATTLIST DefaultTemplate
+     name      CDATA #REQUIRED
+>
+    

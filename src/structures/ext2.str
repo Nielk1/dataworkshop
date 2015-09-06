@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="Ext2-Filesystem-View">
+<Children>
+<RepeatStatement label="boot-record">
+<Children>
+<DataEncodingFieldDefinition label="boot-record">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8192"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="block-group-0">
+<Children>
+<DataEncodingFieldDefinition label="inodes-count">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="true" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<UntilOffsetFieldDefinition label="superblock">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8192"/>
+<LocationDefinition path="block-group-0"/>
+</UntilOffsetFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<Author>martin.pape@gmx.de</Author>
+<Description/>
+</RootStatement>

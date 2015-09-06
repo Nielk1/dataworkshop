@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="GZip">
+<Children>
+<DataEncodingFieldDefinition label="signature">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="compression-method">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="8">
+<Map name="Deflate" encodedData="08"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<RepeatStatement label="flags">
+<Children>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="fcommnet">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="fname">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="fextra">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="fhcrc">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="ftext">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="mtime">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="xflags">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="operating-system">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="8">
+<Map name="FAT Filesystem" encodedData="00"/>
+<Map name="Amiga" encodedData="01"/>
+<Map name="VMS" encodedData="02"/>
+<Map name="UNIX" encodedData="03"/>
+<Map name="VM / CMS" encodedData="04"/>
+<Map name="Atari TOS" encodedData="05"/>
+<Map name="HPFS" encodedData="06"/>
+<Map name="Macintosh" encodedData="07"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<CaseStatement label="has-filename">
+<Children>
+<UntilDelimiterFieldDefinition label="filename">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Data bitSize="8" data="00"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="8"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<LocationDefinition path="flags/fname"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="filename" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="has-comment">
+<Children>
+<UntilDelimiterFieldDefinition label="comment">
+<EncodingDefinition visible="true">
+<USAsciiEncoding/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Data bitSize="8" data="00"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="8"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<LocationDefinition path="flags/fcommnet"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="comment" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="has-crc-16">
+<Children>
+<DataEncodingFieldDefinition label="crc-16">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<LocationDefinition path="flags/fhcrc"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="1">
+<Map name="crc-16" encodedData="80"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<UntilDelimiterFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding radix="2" littleEndian="false" bitSize="1" signed="false"/>
+<Data bitSize="0" data=""/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="-64"/>
+</UntilDelimiterFieldDefinition>
+<DataEncodingFieldDefinition label="crc-32">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="false" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="filesize">
+<EncodingDefinition visible="true">
+<IntegerEncoding radix="16" littleEndian="true" bitSize="32" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+</Children>
+<Author>martin.pape@gmx.de</Author>
+<Description/>
+</RootStatement>

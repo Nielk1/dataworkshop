@@ -1,0 +1,405 @@
+<html>
+<head>
+</head>
+<body>
+
+<p>
+<div align=right><a href="configuration.html">next</a> - <a 
+href="view.html">previous</a> - <a href="toc.html">toc</a></div>
+<hr noshade width="100%">
+</p>
+
+<h1 align=center>2.3. Structure Definition</h1>
+
+<p>
+<a name="Concept"><h3 align=center>Concept</h3></a>
+The structure definition is used to model the data structure you want to display in the editor.
+<br>
+<br>
+A structure definition is a tree structure consisting of structure definition elements. There are two types of elements
+: statements and data field definitions. A statement may contain other elements whereas a
+data field definition is a leaf in the tree and may not contain other elements.
+If the structure definition contains no errors it is compiled into a view.
+<br>
+
+<a name="Statements"><h4 align=center>Statements</h4></a>
+A root statement is compiled into one data frame, the root frame of the resulting view.
+<ul>
+<p>
+<li><b>Root Statement</b><br>
+The RootStatement is the root element of the structure definition. There can only be one and you cannot delete
+it. It contains infomation like author, view definition name and a short description.
+</li>
+</p>
+</ul>
+
+A case statement is compiled into zero or one view elements.
+<ul>
+<p>
+<li><b>Case Statement</b><br>
+Case Statements are used to define a conditional branch in the compilation process.
+A Case Statement contains a pointer into the data. This pointer is evaluated during
+compilation and the resulting data is compared against the defined cases.
+Each case is a data to structure definition element mapping. The structure definition elements used in the Case Statement
+all have to be children of this Case Statement and can be either Statements or Data Field Definitions.
+If no case matches the data the default case is choosen.
+<br>
+There is one special predefined case in each case statement named "--- None ---".  
+</li>
+</p>
+</ul>
+
+A repeat statement is compiled into 0-n data frames.
+<ul>
+<p>
+<li><b>Repeat Statement</b><br>
+You can think of a Repeat Statement as an array with variable length.
+The length can be
+<ul>
+	<li>Static<br>
+		Specifing the length of the array before the compilation, independent of the data.
+	</li>
+	<li>Pointer<br>
+		Defines a pointer into the underlying data. The pointer is
+		then evaluated during compilation to yield the length
+	</li>
+</ul>
+</li>
+</p>
+
+<p>
+<li><b>Repeat Statement Until Offset</b><br>
+The compiler tries to fit in as many Frames as possible until a certain offset is reached.
+The offset is calculated by a defining a location and an alignment.
+<br>
+maximal offset = location + (n * alignment).
+<br>
+The alignment can
+<ul>
+	<li>Static<br>
+		Specifing the alignment before the compilation, independent of the data.
+	</li>
+	<li>Pointer<br>
+		Defines a pointer into the underlying data. The pointer is
+		then evaluated during compilation to yield the alignment.
+	</li>
+</ul>
+</li>
+</p>
+
+<p>
+<li><b>Repeat Statement Until Delimiter</b><br>
+The compiler tries to fit in as many Frames as possible until a delimiter is reached.
+<br>
+If the delimiter has a size of zero bits, it is never found and the remaining bits,
+till the end of the data are used.
+</li>
+</p>
+
+</ul>
+</p>
+
+<a name="DataFieldDefinitions"><h4 align=center>Data Field Definitions</h4></a>
+A Data Encoding Field Definition is compiled into exactly one Data Encoding Field.
+<ul>
+<p>
+<li><b>Data Encoding Field Definition</b><br>
+Field size is specified before compilation. Use it if you know the size of the 
+field beforehand.
+<ul>
+	<li>Static<br>
+		Specifing the size of the array before the compilation.
+	</li>
+	<li>Pointer<br>
+		Defines a pointer into the underlying data. The pointer is
+		then evaluated during compilation to yield the length
+	</li>
+</ul>
+</li>
+</p>
+
+<p>
+<li><b>Field Until Offset Definition</b><br>
+The compiler sizes the resulting field as large as necessary to align the next data frame
+to a certain offset.
+<br>
+The offset is calculated by a defining a location and an alignment.
+<br>
+offset = location + (n * alignment).
+<br>
+The alignment can
+<ul>
+	<li>Static<br>
+		Specifing the alignment before the compilation, indepent of the data.
+	</li>
+	<li>Pointer<br>
+		Defines a pointer into the underlying data. The pointer is
+		then evaluated during compilation to yield the alignment.
+	</li>
+</ul>
+<i>Use: Use it to make sure the next fields starts at a certain alignment, e.g paddings of the transported data
+in network packets.</i>
+</li>
+</p>
+
+<p>
+<li><b>Field Until Delimiter Definition</b><br>
+The compiler looks for a certain bitcombination, the delimiter, starting from 
+the current offset. The resulting DataField is has a bitsize from the current 
+offset till the start of the delimiter. 
+<br>
+If the delimiter has a size of zero bits, it is never found and the remaining bits,
+till the end of the data are used.
+<br>
+<i>Use: Used to model a datastream with an end marker, e.g. C-Style String delimited by '0'.</i>
+</li>
+</p>
+</ul>
+
+A Map Field Definition is compiled into one Map Field
+<ul>
+<p>
+<li><b>Map Field Definition</b><br>
+A MapField Definition is compiled into a MapField. You can define a String to Data
+mapping which is then used to display and edit the data via a combobox.
+<br>
+<i>Use: All map fields could be simulated using a DataEncodingField. But the map field
+is more comftable to edit and provides more information in the form of a value name. Use it if
+you want to model a field with a very small amount of sensible values where you want to tag
+each value with a informative name. Instead of using a Data Encoding Field to display one bit flag
+use a map field to describe the effect of the values.</i>
+</li>
+</p>
+</ul>
+
+</ul>
+</p>
+
+<p><a name="Editing"><h3 align=center>View Definition Editing</h3></a>
+<p align=center><img src=pics/gzipstructure.jpg width="800" 
+height="600"></p>
+<p>
+Dynamic data views are recompiled after each change to the data. The
+recompilation can be turned by disabling the "Compile View" checkbox.
+<br>
+Each data view has an offset where the structure definition starts. This offset is used as 
+the bitoffset of the first structure node when the structure is rendered. The 
+offset can be locked to the current selection offset by enabling the Lock checkbox.
+If the offset is locked the offset of the structure is always the current selection offset 
+(If the offset change did not originate from this dataview).
+If it is unlocked you can manually change the structure offset.
+</p>
+
+Clicking on a structure definition element will display the corresponding configuration dialog on the
+right side. After changing the element click on the apply button to make the changes take effect or 
+on the cancel button to undo the changes.
+<br>
+New Insert ->
+New Add Above ->
+New Add Below
+Cut
+Copy
+Paste (Insert)
+Paste (Add Above)
+Paste (Add Below)
+Delete
+<br>
+
+<p>
+On the buttom you can see two tabs
+<br>
+<b>Validation</b>
+<br>
+Before the structure definition is compiled into a view it has to be valid.
+The validation tab displays a list of errors in the structure definition which have to be
+corrected before the view is compiled. By clicking on the
+error you can select the corresponding structure definition element in the structure tree.
+<br>
+<b>Compiler Output</b>
+<br>
+The compiler output tab provides detailed information about the compilation process. This can
+be useful if you want to debug complex structure definitions.
+By clicking on a compiler message you can select the corresponding structure definition element in the structure tree.
+</p>
+
+<p><a name="ElementConfiguration"><h3 align=center>Element Configuration</h3></a>
+
+<p>
+<a name="RootStatement"><h4 align=center>Root Statement</h4></a>
+<p align=center><img src=pics/rootStatement.jpg width="355" height="175"></p>
+<br>
+<i>
+Example:
+</i>
+</p>
+
+<p>
+<a name="CaseStatement"><h4 align=center>Case Statement</h4></a>
+<p align=center><img src=pics/caseStatement.jpg width="635" height="333"></p>
+The data offset has to be a structure definition element before this case statement.
+<br>
+The data size must be greater than 0 bits. 
+<br>
+<i>
+Example: The case statement evalutes the protocol field in an ip packet to chose correct
+view definition. The protocol field has a length of 1 byte, and the defined cases are UDP
+and TCP. If none of those two protocols are used the default branch is choosen.
+</i>
+<p>
+
+<a name="RepeatStatement"><h4 align=center>Repeat Statement</h4></a>
+<p>
+<p align=center><img src=pics/repeatStatement_static.jpg width="215" height="132"></p>
+This repeat statement is compiled into <code>length</code> data frames.
+<br>
+<i>
+Example: The repeat statement is compiled into on data frame with the name "access-flags".
+</i>
+</p>
+
+<p>
+<p align=center><img src=pics/repeatStatement_pointer.jpg width="437" height="194"></p>
+The pointer definition consists of a field before this repeat statement.
+<br> 
+After the pointer has been evaluated the resulting number is modified by
+a multiplication and then an addition (subtraction).
+<br>
+The minimum number of repeats is zero.
+<br>
+<i>
+Example: The number of repeats is stored in a field called constant-pool-count. This field
+is evaluated as an unsigned big endian number. 
+</i>
+</p>
+
+<a name="RepeatUntilOffsetStatement"><h4 align=center>Repeat Until Offset Statement</h4></a>
+<p>
+<p align=center><img src=pics/repeatUntilOffsetStatement_static.jpg width="244" height="171"></p>
+This repeat statement is compiled into <code>length</code> data frames.
+<br>
+<i>
+Example: The repeat statement is compiled into on data frame with the name "access-flags".
+</i>
+</p>
+
+<p>
+<p align=center><img src=pics/repeatUntilOffsetStatement_pointer.jpg width="427" height="205"></p>
+The pointer definition consists of a field before this repeat statement.
+<br> 
+After the pointer has been evaluated the resulting number is modified by
+a multiplication and then an addition (subtraction).
+<br>
+The minimum number of repeats is zero.
+<br>
+<i>
+Example: The number of repeats is stored in a field called constant-pool-count. This field
+is evaluated as an unsigned big endian number. 
+</i>
+</p>
+
+<p>
+<a name="RepeatUntilDelimiterStatement"><h4 align=center>Repeat Until Delimiter Statement</h4></a>
+<p align=center><img src=pics/repeatUntilDelimiterStatement.jpg width="623" height="215"></p>
+<i>
+Example: 
+</i>
+<p>
+
+<h3 align=center>Fields</h3>
+<a name="DataEncodingFieldDefinition"><h4 align=center>Data Encoding Field Definition</h4></a>
+<p>
+<p align=center><img src=pics/dataEncodingFieldDefinition_static.jpg width="597" height="230"></p>
+<i>
+Example: 
+</i>
+</p>
+
+<p>
+<p align=center><img src=pics/dataEncodingFieldDefinition_pointer.jpg width="748" height="264"></p>
+The pointer definition consists of a field before this repeat statement.
+<br> 
+After the pointer has been evaluated the resulting number is modified by
+a multiplication and then an addition (subtraction).
+<br>
+The minimum bitSize is zero.
+<br>
+<i>
+Example: The data encoding field displays the data inside an udp packet. The length
+of the packet is stored int a field called length. The length is in bytes, so we 
+have to multiply by 8 to get bits. Then we have to substract the headersize of
+the udp packet (8 bytes) to get the data size.
+</i>
+</p>
+
+<a name="RepeatUntilOffsetFieldDefinition"><h4 align=center>Repeat Until Offset Field Definition</h4></a>
+<p>
+<p align=center><img src=pics/repeatUntilOffsetFieldDefinition_static.jpg width="593" height="269"></p>
+<br>
+<i>
+Example:
+</i>
+</p>
+
+<p>
+<p align=center><img src=pics/repeatUntilOffsetFieldDefinition_pointer.jpg width="599" height="301"></p>
+<i>
+Example: 
+</i>
+</p>
+
+<p>
+<a name="RepeatUntilDelimiterFieldDefinition"><h4 align=center>Repeat Until Delimiter Field Definition</h4></a>
+<p align=center><img src=pics/repeatUntilDelimiterFieldDefinition.jpg width="672" height="311"></p>
+<i>
+Example: This is the definition for a c-style string. The delimiter is 0x00 
+and we display the result in ascii. We want to include the delimiter in the displayed data
+so we modify the calculated bitsize by adding 1 byte.
+</i>
+<p>
+
+<a name="MapFieldDefinition"><h4 align=center>Map Field Definition</h4></a>
+<p align=center><img src=pics/mapFieldDefinition.jpg width="589" height="332"></p>
+<i>
+Example: The Operating System byte in the gzip structure. It is 1 byte long 
+and there are 8 possible mappings defined.
+</i>
+<p>
+
+<p>
+<hr noshade width="100%">
+<div align=right><a href="configuration.html">next</a> - <a 
+href="view.html">previous</a> - <a href="toc.html">toc</a></div>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

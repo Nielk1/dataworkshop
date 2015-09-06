@@ -1,0 +1,113 @@
+<!--
+    Description:
+-->
+
+<!ENTITY % Shared.dtd SYSTEM "Shared.dtd">
+%Shared.dtd;
+<!ENTITY % Structure "CaseStatement | RepeatStatement | UntilOffsetRepeatStatement | UntilDelimiterRepeatStatement | MapFieldDefinition | DataEncodingFieldDefinition | UntilOffsetFieldDefinition | UntilDelimiterFieldDefinition">
+
+<!ELEMENT RootStatement (Children, Author, Description)>
+<!ATTLIST RootStatement
+   label    CDATA   #REQUIRED 
+>
+<!ELEMENT Children (%Structure;)* >
+<!ELEMENT Author (#PCDATA) >
+<!ELEMENT Description (#PCDATA) >
+
+<!--
+    Statements
+-->
+<!ELEMENT DataConverter (%Encoding;) >
+
+<!ELEMENT CaseStatement (Children, LocationDefinition, CaseDefinition) >
+<!ATTLIST CaseStatement   
+   label    CDATA   #REQUIRED 
+>
+
+<!ELEMENT RepeatStatement (Children, (StaticLengthDefinition | PointerLengthDefinition)) >
+<!ATTLIST RepeatStatement
+   label    CDATA   #REQUIRED 
+>
+
+<!ELEMENT UntilOffsetRepeatStatement (Children, (StaticLengthDefinition | PointerLengthDefinition), LocationDefinition) >
+<!ATTLIST UntilOffsetRepeatStatement
+   label    CDATA   #REQUIRED 
+>
+
+<!ELEMENT UntilDelimiterRepeatStatement (Children, DelimiterDefinition, SimpleModificationDefinition) >
+<!ATTLIST UntilDelimiterRepeatStatement
+   label    CDATA   #REQUIRED 
+>
+
+<!--
+    Fields
+-->
+<!ELEMENT MapFieldDefinition (StringToDataMappingDefinition) >
+<!ATTLIST MapFieldDefinition
+   label    CDATA   #REQUIRED 
+>
+
+<!ELEMENT DataEncodingFieldDefinition (EncodingDefinition, (StaticLengthDefinition | PointerLengthDefinition)) >
+<!ATTLIST DataEncodingFieldDefinition
+   label    CDATA   #REQUIRED 
+>
+
+<!ELEMENT UntilOffsetFieldDefinition (EncodingDefinition, (StaticLengthDefinition | PointerLengthDefinition), LocationDefinition) >
+<!ATTLIST UntilOffsetFieldDefinition
+   label    CDATA   #REQUIRED 
+>
+
+<!ELEMENT UntilDelimiterFieldDefinition (EncodingDefinition, DelimiterDefinition, SimpleModificationDefinition) >
+<!ATTLIST UntilDelimiterFieldDefinition
+   label    CDATA   #REQUIRED 
+>
+
+<!--
+    Atomic Stuff
+-->
+<!ELEMENT LocationDefinition EMPTY >
+<!ATTLIST LocationDefinition
+   path CDATA   #REQUIRED
+>
+
+<!ELEMENT PointerDefinition EMPTY >
+<!ATTLIST PointerDefinition
+   path CDATA   #REQUIRED
+   littleEndian CDATA   #REQUIRED
+   signed CDATA   #REQUIRED
+>
+
+<!ELEMENT CaseDefinition (StringToDataMappingDefinition) >
+<!ATTLIST CaseDefinition
+   defaultCase CDATA   #REQUIRED
+>
+
+<!ELEMENT EncodingDefinition (%Encoding;) >
+<!ATTLIST EncodingDefinition
+   visible CDATA   #REQUIRED  
+>
+
+<!ELEMENT DelimiterDefinition ((%Encoding;) ,Data) >
+<!ATTLIST DelimiterDefinition
+   searchStepSize CDATA   #REQUIRED
+>
+
+<!ELEMENT ModificationDefinition EMPTY >
+<!ATTLIST ModificationDefinition
+   multiplication CDATA   #REQUIRED
+   addition CDATA   #REQUIRED
+>
+
+<!ELEMENT SimpleModificationDefinition EMPTY >
+<!ATTLIST SimpleModificationDefinition
+   addition CDATA   #REQUIRED
+>
+
+<!ELEMENT StringToDataMappingDefinition ((%Encoding;) ,StringToDataMapping) >
+
+<!ELEMENT StaticLengthDefinition EMPTY >
+<!ATTLIST StaticLengthDefinition
+   length CDATA   #REQUIRED
+>
+
+<!ELEMENT PointerLengthDefinition (PointerDefinition, ModificationDefinition) >

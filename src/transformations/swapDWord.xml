@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Swap DWord" bitSize="32">
+<transformers>
+<SwapByteOrder swappedBytes="4"/>
+</transformers>
+</DataTransformation>

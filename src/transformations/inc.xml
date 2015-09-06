@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Inc" bitSize="1">
+<transformers>
+<Increase value="1"/>
+</transformers>
+</DataTransformation>

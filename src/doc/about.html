@@ -1,0 +1,212 @@
+<html>
+<head>
+</head>
+<body>
+
+<p>
+<div align="right"><a href="overview.html">next</a> - 
+previous - <a href="toc.html">toc</a></div>
+<hr noshade width="100%">
+</p>
+
+<h1 align="center">1. About</h1>
+
+<p align="center">
+<i>
+There are 10 types of people in the world, Those who understand binary, and 
+those who dont.
+</i>
+</p>
+
+<p>
+DataWorkshop is an editor to view and modify binary data. The editor provides different views
+which can be used to edit, analyze and export the binary data.
+<br>
+A simple hex view can be used to simulate a standard hexeditor but more complex dynamic
+views are possible to comfortable edit binary structure like executables or captured network traffic.
+<br>
+The editor provides powerful search and diff functionality and user defined transformations to
+modify the binary data.
+<br>
+Views can be filtered using the XPath query language (e.g. selecting several IP packets in a network traffic capture file)
+<br>
+Views can be exported in various formats for further processing. This feature can be used to convert
+old binary formats into modern xml tagged data. 
+</p>
+
+<h3>Features</h3>
+<ul>
+	<li>Mulitplatform (Windows, Linux, MacOS)</li>
+	<li>User defined view definitions which are compiled into complex data views</li>
+    <li>Data view can can be exported as xml</li>
+    <li>Data view can be queried using XPath syntax to generate a new data view (e.g. selecting several IP packages according to their flags)</li>
+    <li>Configurable data encodings used to edit and view data (e.g Hex, Decimal, IEEE 754 Reals, USAscii, EBCDIC, TimeInMillis etc.)</li>
+	<li>Configurable data transformation (e.g. Rot13 Encoder / Decoder)</li>
+	<li>Diff tool with bit granularity</li>
+    <li>Find and replace with bit granularity</li>
+  	<li>Data clipboard for cut, copy and paste</li>
+   	<li>Undo/Redo </li>
+	<li>XML based storage for persistent data</li>
+	<li>Data conversion between different formats (e.g little endian <->  big endian, hexdump <-> binary data)</li>
+	<li>Read and write from sockets</li>
+</ul>
+
+<h3>Minimum Hardware & Software Requirements</h3>
+<ul>
+	<li>Java 1.4</li>
+	<li>1.0 Ghz Processor with 256MB Ram</li>
+</ul>
+
+<h3>Known Bugs And Limitations</h3>
+<ul>
+	<li>too slow when editing large files (> 100MB) or using complex views</li>
+	<li>Maximal data size 2 147 483 647 bytes (~ 2 GB)</li>
+</ul>
+
+<h3>History</h3>
+<ul>
+	
+	<p>
+	<li>25.09.2003 DataWorkshop v1.1
+	<ul>
+		<li>redesigned view templates / DataRecognizer</li>
+		<li>Open/Save static views</li>
+		<li>Import/Export data</li>
+    </ul>
+	</p>
+	
+	<p>
+	<li>26.06.2003 DataWorkshop v1.0
+	<ul>
+		<li>improved the structure definition gui</li>
+		<li>extended compiler output to make it easier to debug structure definition</li>
+    	<li>added palette with common structure definition elements</li>
+    	<li>redesigned structure definition element</li>
+    	<li>added new structure definition elements</li>
+    	<li>fixed the view query which was completely broken</li>
+    	<li>reworked the documentation, added a view query tutorial</li>
+    </ul>
+	</p>
+
+	<p>
+	<li>25.11.2002 DataWorkshop v0.9
+	<ul>
+        <li>Text Clipboard for Text -> Data Conversion</li>
+		<li>Configurable automatic data recognition based on data and filename</li>
+        <li>Compiler Output to debug structure definitions</li>
+		<li>Structure definition compiler options</li>
+		<li>Data view query (XPath Query on xml structure)</li>
+		<li>Speed improvements when loading/saving structures</li>
+        <li>Major gui Redesign (Automatic resizing of data encoding fields, BrowserView, Fixed Keyboard navigation)</li>
+        <li>new option to display offset as MB.KB.Bytes.Bits</li>
+		<li>new data encodings: IEEE754 Floats, TimeInMillis</li>
+        <li>made old data encodings more configurable: radix can be choosen from 2 -20</li>
+		<li>new structure definition elements: Static Aligned Field, Pointer Aligned Field</li>
+        </ul>
+	</p>
+
+	<p>
+	<li>13.06.2002 DataWorkshop v0.85
+	<ul>
+		<li>Data view can be saved in different formats (xml, html, text)</li>
+		<li>new data transformers: Not, Negate, Map</li>
+        <li>new data encodings: EBCDIC</li>
+        <li>Changed TextFields to Spinners</li>
+		<li>Speed improvements when loading/saving structures and templates</li>
+	</ul>
+	</p>
+
+	<p>
+	<li>21.04.2002 DataWorkshop v0.8
+	<ul>
+		<li>Added data transformers</li>
+		<li>Switched from binary to XML serialization</li>
+		<li>Changed SplitWindowView to InternalFrameView</li>
+		<li>Read and write from sockets</li>
+	</ul>
+	</p>
+
+	<p>
+	<li>11.03.2001 DataWorkshop v0.51
+	<ul>
+		<li>bug fixes</li>
+	</ul>
+	</li>
+	</p>
+
+	<p>
+	<li>
+	01.10.2000 Dataworkshop v0.5
+	<ul>
+		<li>first public release</li>
+	</ul>
+	</li>
+	</p>
+</ul>
+</ul>
+
+<h3>License</h3>
+
+This software is being distributed as Freeware. It may be freely used, 
+copied and distributed as long as it is not sold, and all original files 
+are included, including this license. By using this software, you agree 
+to these terms and the terms of the Disclaimer below:
+
+<h3>Disclaimer</h3>
+
+This software is provided "as is" and any expressed or implied warranties, 
+including, but not limited
+ to, the implied warranties of merchantibility and fitness for a particular 
+purpose are disclaimed.
+In no event shall the author be liable for any direct, indirect, incidental, 
+special, exemplary, or
+consequential damages (including, but not limited to, procurement of 
+substitute goods or services;
+loss of use, data, or profits; or business interruption) however caused and on 
+any theory of
+liability, whether in contract, strict liability, or tort (including 
+negligence or otherwise)
+arising in any way out of the use of this software, even if advised of the 
+possibility of such damage.
+
+<p>
+<hr noshade width="100%">
+<div align="right"><a href="overview.html">next</a> - previous - <a 
+href="toc.html">toc</a></div>
+</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

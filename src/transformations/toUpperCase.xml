@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="To Uppercase" bitSize="8">
+<transformers>
+<Translate>
+<DataToDataMapping>
+<IntegerEncoding radix="16" littleEndian="false" bitSize="8" signed="false"/>
+<Mapping bitSize="8">
+<Map from="7A" to="5A"/>
+<Map from="6D" to="4D"/>
+<Map from="6C" to="4C"/>
+<Map from="6B" to="4B"/>
+<Map from="6A" to="4A"/>
+<Map from="69" to="49"/>
+<Map from="68" to="48"/>
+<Map from="67" to="47"/>
+<Map from="66" to="46"/>
+<Map from="65" to="45"/>
+<Map from="64" to="44"/>
+<Map from="63" to="43"/>
+<Map from="62" to="42"/>
+<Map from="61" to="41"/>
+<Map from="6E" to="4E"/>
+<Map from="6F" to="4F"/>
+<Map from="70" to="50"/>
+<Map from="71" to="51"/>
+<Map from="72" to="52"/>
+<Map from="73" to="53"/>
+<Map from="74" to="54"/>
+<Map from="75" to="55"/>
+<Map from="76" to="56"/>
+<Map from="77" to="57"/>
+<Map from="78" to="58"/>
+<Map from="79" to="59"/>
+</Mapping>
+</DataToDataMapping>
+</Translate>
+</transformers>
+</DataTransformation>

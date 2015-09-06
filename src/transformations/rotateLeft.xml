@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Rotate Left" bitSize="1">
+<transformers>
+<Rotate bits="-1"/>
+</transformers>
+</DataTransformation>

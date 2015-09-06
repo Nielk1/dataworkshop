@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="init" name="DataWorkshop">
+
+    <property file=".ant.properties"/>
+    <property name="build.compiler" value="classic"/>
+    
+	<property name="release" value="DataWorkshop-1.1.1"/>
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="release.dir" value="${basedir}/${release}"/>
+
+ 	<!--                                                                               
+	===========================================================================
+			Init
+	===========================================================================													
+	-->
+    <target name="init">
+        <echo message="basedir = ${basedir}"/>
+        <echo message="src.dir = ${basedir}/src"/>
+        <echo message="build.dir = ${basedir}/build"/>
+        <echo message="release.dir = ${basedir}/${release}"/>
+    </target>
+
+     <!--                                                                               
+	===========================================================================
+			Clean
+	===========================================================================													
+	-->
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+     <!--                                                                               
+	===========================================================================
+			Compile
+	===========================================================================													
+	-->
+    <target name="compile" depends="init">
+        <tstamp/>
+        <mkdir dir="build"/>
+        <javac optimize="true" debug="false" deprecation="true" 
+destdir="${build.dir}" srcdir="${src.dir}" excludes="utils/**" target="1.4" source="1.4">
+        </javac>
+    </target>
+
+	 <!--                                                                               
+	===========================================================================
+		Run
+	===========================================================================													
+	-->
+    <target name="run" depends="compile">
+        <java classname="dataWorkshop.DataWorkshop" fork="yes">
+            <classpath>
+                <pathelement location="${build.dir}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!--                                                                               
+	===========================================================================
+		Build
+	===========================================================================													
+	-->
+    <target name="build" depends="clean,compile">
+         <copy toDir="${build.dir}/doc">
+            <fileset dir="${src.dir}/doc" 
+                excludes="**/.xvpics"
+            />
+         </copy>
+         <copy toDir="${build.dir}/structures">
+            <fileset dir="${src.dir}/structures"/>
+         </copy>
+        <copy toDir="${build.dir}/dataViewStylesheets">
+            <fileset dir="${src.dir}/dataViewStylesheets"/>
+        </copy>
+         <copy toDir="${build.dir}/transformations">
+            <fileset dir="${src.dir}/transformations"/>
+        </copy>
+        <copy toDir="${build.dir}/dtd">
+            <fileset dir="${src.dir}/dtd"/>
+        </copy>
+        <copy file="${src.dir}/ReadMe.txt" toDir="${build.dir}"/>
+    </target>   
+	
+	<!--                                                                               
+	===========================================================================
+		javadoc
+	===========================================================================													
+	-->
+	<target name="javadoc">     
+		<mkdir dir="${build.dir}/javadoc"/>
+       	<javadoc
+                        destdir="${build.dir}/javadoc"
+                        author="true"
+                        version="true"
+                        source="1.4"
+       	>
+        	<fileset dir="${src.dir}" defaultexcludes="yes">
+             	<include name="**/*.java" />
+             </fileset> 
+    	</javadoc>  
+	</target>
+	
+    <!--                                                                               
+	===========================================================================
+		BUILDRELEASE
+    	compile, jar
+	===========================================================================													
+	-->
+    <target name="buildrelease" depends="build">
+        <delete dir="${release.dir}"/>
+        <delete file="${release.dir}.zip"/>
+        <mkdir dir="${release.dir}"/>
+        <copy toDir="${release.dir}">
+            <fileset dir="${build.dir}" excludes="dataWorkshop/**,**/*.nbattrs"/>
+        </copy>
+        <jar 
+            jarfile="${release.dir}/DataWorkshop.jar" 
+            manifest="${src.dir}/MANIFEST.MF"
+        >
+            <fileset dir="${build.dir}" includes="**/*.class"/>
+        </jar>
+        
+        <zip zipfile="${release.dir}.zip">
+            <fileset dir="${basedir}" includes="${release}/**"/>
+         </zip>
+    </target>
+</project>

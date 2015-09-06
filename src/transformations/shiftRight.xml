@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Shift Right" bitSize="1">
+<transformers>
+<Shift bits="1" fillWithOnes="false"/>
+</transformers>
+</DataTransformation>

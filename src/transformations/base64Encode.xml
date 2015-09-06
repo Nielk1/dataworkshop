@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE DataTransformation SYSTEM 'dtd/DataTransformation.dtd'>
+<DataTransformation name="Base64 Encode" bitSize="6">
+<transformers>
+<Convert>
+<Encoder>
+<Base64Encoding/>
+</Encoder>
+<Decoder>
+<USAsciiEncoding/>
+</Decoder>
+</Convert>
+</transformers>
+</DataTransformation>

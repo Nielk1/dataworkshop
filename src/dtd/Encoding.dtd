@@ -1,0 +1,63 @@
+<!--
+    Description:
+-->
+<!ENTITY % Encoding "Base64Encoding | EBCDICEncoding | GroupedIntegerEncoding | IEEE754DecodedEncoding | IEEE754RawEncoding | IntegerEncoding | MSDOSTimeDateEncoding | TimeInMillisEncoding | USAsciiEncoding">
+
+<!ELEMENT Base64Encoding EMPTY>
+
+<!--
+    EBCDIC character encoding
+-->
+<!ELEMENT EBCDICEncoding EMPTY>
+
+<!ELEMENT GroupedIntegerEncoding EMPTY>
+
+<!ELEMENT IEEE754DecodedEncoding EMPTY>
+<!ATTLIST IEEE754DecodedEncoding
+     precision  CDATA #REQUIRED
+     mantisseDigits CDATA #REQUIRED
+     radix    CDATA #REQUIRED
+     littleEndian CDATA #REQUIRED
+>
+
+<!ELEMENT IEEE754RawEncoding EMPTY>
+<!ATTLIST IEEE754RawEncoding
+     precision  CDATA #REQUIRED
+     radix    CDATA #REQUIRED
+     littleEndian CDATA #REQUIRED
+>
+
+<!--
+    IntegerConverter is used to convert data into an int representation. 
+-->
+<!ELEMENT IntegerEncoding EMPTY>
+<!ATTLIST IntegerEncoding
+     bitSize  CDATA #REQUIRED
+     signed   CDATA #REQUIRED
+     radix    CDATA #REQUIRED
+     littleEndian CDATA #REQUIRED
+>
+
+<!--
+    MS-Dos TimeDate uses a little endian dword to encode the time and date.
+    with the following encoding:
+    
+    Bit     Description
+    0-6     Year + 1980
+    7-10    Month
+    11-15   Day
+    16-21   Hour
+    22-26   Minute
+    27-31   Seconds / 2
+-->
+<!ELEMENT MSDOSTimeDateEncoding EMPTY>
+
+<!ELEMENT TimeInMillisEncoding EMPTY>
+<!ATTLIST TimeInMillisEncoding
+     littleEndian CDATA #REQUIRED
+>
+
+<!--
+    US-Ascii character encoding
+-->
+<!ELEMENT USAsciiEncoding EMPTY>

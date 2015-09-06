@@ -1,0 +1,1655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStatement SYSTEM 'dtd/RootStatement.dtd'>
+<RootStatement label="MPEG">
+<Children>
+<UntilDelimiterRepeatStatement label="chunk">
+<Children>
+<UntilDelimiterRepeatStatement label="padding">
+<Children>
+<UntilDelimiterFieldDefinition label="bits">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Data bitSize="24" data="000001"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Data bitSize="24" data="000001"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterRepeatStatement>
+<DataEncodingFieldDefinition label="start_code">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="32" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="32"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="start_code_case">
+<Children>
+<CaseStatement label="start_code_case_B">
+<Children>
+<RepeatStatement label="pack_header">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="mpeg_case">
+<Children>
+<RepeatStatement label="mpeg1_header">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+<RepeatStatement label="SCR">
+<Children>
+<DataEncodingFieldDefinition label="system_clock_reference_base[32..30]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="system_clock_reference_base[29..15]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="system_clock_reference_base[14..0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="program_mux_rate">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="22" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="22"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="mpeg2_header">
+<Children>
+<RepeatStatement label="SCR">
+<Children>
+<DataEncodingFieldDefinition label="system_clock_reference_base[32..30]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="system_clock_reference_base[29..15]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="system_clock_reference_base[14..0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="system_clock_reference_extension">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="9" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="9"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[3]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="program_mux_rate">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="22" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="22"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="5"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="pack_stuffing_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="pack_stuffing_case">
+<Children>
+<DataEncodingFieldDefinition label="pack_stuffing">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/start_code_case_B/pack_header/mpeg_case/mpeg2_header/pack_stuffing_length" signed="false"/>
+<ModificationDefinition addition="0" multiplication="8"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code_case/start_code_case_B/pack_header/mpeg_case/mpeg2_header/pack_stuffing_length"/>
+<CaseDefinition defaultCase="pack_stuffing">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="3" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="3">
+<Map encodedData="00" name="-- None --"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/start_code_case_B/pack_header/dummy"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="mpeg1_header"/>
+<Map encodedData="40" name="mpeg2_header"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="system_header">
+<Children>
+<DataEncodingFieldDefinition label="header_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="rate_bound">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="22" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="22"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="audio_bound">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="6" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="6"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="fixed_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="CSPS_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="system_audio_lock_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="system_video_lock_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="video_bound">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="5" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="5"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="packed_rate_restriction_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="7"/>
+</DataEncodingFieldDefinition>
+<UntilOffsetRepeatStatement label="stream_list">
+<Children>
+<DataEncodingFieldDefinition label="stream_id">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="STD_buffer_bound_scale">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="STD_buffer_size_bound">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="13" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="13"/>
+</DataEncodingFieldDefinition>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/start_code_case_B/system_header/header_length" signed="false"/>
+<ModificationDefinition addition="16" multiplication="8"/>
+</PointerLengthDefinition>
+<LocationDefinition path="chunk/start_code_case/start_code_case_B/system_header/header_length"/>
+</UntilOffsetRepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="program_stream_map">
+<Children>
+<DataEncodingFieldDefinition label="packet_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/start_code_case_B/program_stream_map/packet_length" signed="false"/>
+<ModificationDefinition addition="0" multiplication="8"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="private_stream_1">
+<Children>
+<DataEncodingFieldDefinition label="packet_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/start_code_case_B/private_stream_1/packet_length" signed="false"/>
+<ModificationDefinition addition="0" multiplication="8"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="padding_stream">
+<Children>
+<DataEncodingFieldDefinition label="packet_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="padding">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/start_code_case_B/padding_stream/packet_length" signed="false"/>
+<ModificationDefinition addition="0" multiplication="8"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="private_stream_2">
+<Children>
+<DataEncodingFieldDefinition label="packet_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/start_code_case_B/private_stream_2/packet_length" signed="false"/>
+<ModificationDefinition addition="0" multiplication="8"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="program_end">
+<Children/>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<UntilDelimiterFieldDefinition label="unknown_chunk">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Data bitSize="24" data="000001"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code"/>
+<CaseDefinition defaultCase="unknown_chunk">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="32" littleEndian="false" radix="16" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="32">
+<Map encodedData="000001B9" name="program_end"/>
+<Map encodedData="000001BA" name="pack_header"/>
+<Map encodedData="000001BB" name="system_header"/>
+<Map encodedData="000001BC" name="program_stream_map"/>
+<Map encodedData="000001BD" name="private_stream_1"/>
+<Map encodedData="000001BE" name="padding_stream"/>
+<Map encodedData="000001BF" name="private_stream_2"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="start_code_case_F">
+<Children>
+<RepeatStatement label="program_stream_directory">
+<Children>
+<DataEncodingFieldDefinition label="packet_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/start_code_case_F/program_stream_directory/packet_length" signed="false"/>
+<ModificationDefinition addition="0" multiplication="8"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<UntilDelimiterFieldDefinition label="unknown_chunk">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Data bitSize="24" data="000001"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code"/>
+<CaseDefinition defaultCase="unknown_chunk">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="32" littleEndian="false" radix="16" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="32">
+<Map encodedData="000001FF" name="program_stream_directory"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<RepeatStatement label="packet">
+<Children>
+<DataEncodingFieldDefinition label="packet_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="mpeg_case">
+<Children>
+<RepeatStatement label="mpeg1_header">
+<Children>
+<CaseStatement label="STD_buffer_case">
+<Children>
+<RepeatStatement label="STD_buffer">
+<Children>
+<DataEncodingFieldDefinition label="STD_buffer_scale">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="STD_buffer_size">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="13" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="13"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/dummy"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="40" name="STD_buffer"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="PTS_case">
+<Children>
+<RepeatStatement label="PTS">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PTS[32..30]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PTS[29..15]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PTS[14..0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg1_header/dummy"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="80" name="PTS"/>
+<Map encodedData="C0" name="PTS"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="DTS_case">
+<Children>
+<RepeatStatement label="DTS">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="DTS[32..30]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="DTS[29..15]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="DTS[14..0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg1_header/dummy"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="C0" name="DTS"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="dummy_case">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg1_header/dummy"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="dummy"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="mpeg2_header">
+<Children>
+<MapFieldDefinition label="PES_scrambling_control">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="Not Scrambled"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="PES_priority">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="data_alignment_indicator">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="copyright">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="original_or_copy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="DTS_PTS_flags">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="No Timestamp"/>
+<Map encodedData="80" name="PTS"/>
+<Map encodedData="C0" name="DTS &amp; PTS"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="ESCR_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="ES_rate_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="DSM_trick_mode_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="additional_copy_info_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PES_CRC_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PES_extension_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="packet_header_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="8"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="PTS_case">
+<Children>
+<RepeatStatement label="PTS">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PTS[32..30]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PTS[29..15]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PTS[14..0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/DTS_PTS_flags"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="80" name="PTS"/>
+<Map encodedData="C0" name="PTS"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="DTS_case">
+<Children>
+<RepeatStatement label="DTS">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="4"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="DTS[32..30]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="DTS[29..15]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="DTS[14..0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/DTS_PTS_flags"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="C0" name="DTS"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="ESCR_case">
+<Children>
+<RepeatStatement label="ESCR">
+<Children>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="ESCR[32..30]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="3" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="ESCR[29..15]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="ESCR[14..0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="15" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="15"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[2]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="ESCR_extension">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="9" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="9"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[3]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/ESCR_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="ESCR"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="ES_case">
+<Children>
+<RepeatStatement label="ES">
+<Children>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="ES_rate">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="22" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="22"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/ES_rate_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="ES"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="DSM_case">
+<Children>
+<RepeatStatement label="DSM">
+<Children>
+<MapFieldDefinition label="trick_mode_control">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="3" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="3">
+<Map encodedData="00" name="Fast Forward"/>
+<Map encodedData="20" name="Slow Motion"/>
+<Map encodedData="40" name="Freeze Frame"/>
+<Map encodedData="60" name="Fast Reverse"/>
+<Map encodedData="80" name="Slow Reverse"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<CaseStatement label="trick_mode_case">
+<Children>
+<RepeatStatement label="fast_forward">
+<Children>
+<MapFieldDefinition label="field_id">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="Display from Top Field Only"/>
+<Map encodedData="40" name="Display from Bottom Field Only"/>
+<Map encodedData="80" name="Display Complete Frame"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="intra_slice_refresh">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="frequency_truncation">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="Only DC Coefficients Are Non-Zero"/>
+<Map encodedData="40" name="Typically Only the First Three Coefficients Are Non-Zero"/>
+<Map encodedData="80" name="Typically Only the First Six Coefficients Are Non-Zero"/>
+<Map encodedData="C0" name="All Coefficients May Be Non-Zero"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="slow_motion">
+<Children>
+<DataEncodingFieldDefinition label="rep_cntrl">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="5" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="5"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="freeze_frame">
+<Children>
+<MapFieldDefinition label="field_id">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="Display from Top Field Only"/>
+<Map encodedData="40" name="Display from Bottom Field Only"/>
+<Map encodedData="80" name="Display Complete Frame"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="fast_reverse">
+<Children>
+<MapFieldDefinition label="field_id">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="Display from Top Field Only"/>
+<Map encodedData="40" name="Display from Bottom Field Only"/>
+<Map encodedData="80" name="Display Complete Frame"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+<DataEncodingFieldDefinition label="intra_slice_refresh">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<MapFieldDefinition label="frequency_truncation">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="00" name="Only DC Coefficients Are Non-Zero"/>
+<Map encodedData="40" name="Typically Only the First Three Coefficients Are Non-Zero"/>
+<Map encodedData="80" name="Typically Only the First Six Coefficients Are Non-Zero"/>
+<Map encodedData="C0" name="All Coefficients May Be Non-Zero"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</MapFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<RepeatStatement label="slow_reverse">
+<Children>
+<DataEncodingFieldDefinition label="rep_cntrl">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="5" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="5"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="5"/>
+</DataEncodingFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/DSM_case/DSM/trick_mode_control"/>
+<CaseDefinition defaultCase="reserved">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="3" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="3">
+<Map encodedData="00" name="fast_forward"/>
+<Map encodedData="20" name="slow_motion"/>
+<Map encodedData="40" name="freeze_frame"/>
+<Map encodedData="60" name="fast_reverse"/>
+<Map encodedData="80" name="slow_reverse"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/DSM_trick_mode_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="DSM"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="additional_copy_info_case">
+<Children>
+<RepeatStatement label="additional_copy_info">
+<Children>
+<DataEncodingFieldDefinition label="marker_bit">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="additional_copy_info">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="7" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="7"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/additional_copy_info_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="additional_copy_info"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="CRC_case">
+<Children>
+<DataEncodingFieldDefinition label="previous_PES_packet_CRC">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="16" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="16"/>
+</DataEncodingFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/PES_CRC_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="previous_PES_packet_CRC"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="extension_case">
+<Children>
+<RepeatStatement label="extension">
+<Children>
+<DataEncodingFieldDefinition label="PES_private_data_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="pack_header_field_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="program_packet_sequence_counter_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="STD_buffer_flag">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="reserved">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="3"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PES_extension_flag_2">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<CaseStatement label="private_data_case">
+<Children>
+<DataEncodingFieldDefinition label="PES_private_data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="128"/>
+</DataEncodingFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/extension_case/extension/PES_private_data_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="PES_private_data"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="sequence_counter_case">
+<Children>
+<RepeatStatement label="sequence_counter">
+<Children>
+<DataEncodingFieldDefinition label="marker_bit[0]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="program_packet_sequence_counter">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="7" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="7"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="marker_bit[1]">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="MPEG1_MPEG2_identifier">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="original_stuff_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="6" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="6"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/extension_case/extension/program_packet_sequence_counter_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="sequence_counter"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="STD_buffer_case">
+<Children>
+<RepeatStatement label="STD_buffer">
+<Children>
+<DataEncodingFieldDefinition label="dummy">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="2"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="STD_buffer_scale">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="STD_buffer_size">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="13" littleEndian="false" radix="10" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="13"/>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/extension_case/extension/STD_buffer_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="STD_buffer"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="extension_2_case">
+<Children>
+<RepeatStatement label="extension">
+<Children>
+<DataEncodingFieldDefinition label="marker_bit">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="1"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="PES_extension_field_length">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="7" littleEndian="false" radix="2" signed="false"/>
+</EncodingDefinition>
+<StaticLengthDefinition length="7"/>
+</DataEncodingFieldDefinition>
+<DataEncodingFieldDefinition label="extension_data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/extension_case/extension/extension_2_case/extension/PES_extension_field_length" signed="false"/>
+<ModificationDefinition addition="0" multiplication="8"/>
+</PointerLengthDefinition>
+</DataEncodingFieldDefinition>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/extension_case/extension/PES_extension_flag_2"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="extension"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/PES_extension_flag"/>
+<CaseDefinition defaultCase="-- None --">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="1">
+<Map encodedData="80" name="extension"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<UntilOffsetRepeatStatement label="unknown_data">
+<Children>
+<UntilOffsetFieldDefinition label="data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/packet_header_length" signed="false"/>
+<ModificationDefinition addition="8" multiplication="8"/>
+</PointerLengthDefinition>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/packet_header_length"/>
+</UntilOffsetFieldDefinition>
+</Children>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/packet_header_length" signed="false"/>
+<ModificationDefinition addition="8" multiplication="8"/>
+</PointerLengthDefinition>
+<LocationDefinition path="chunk/start_code_case/packet/mpeg_case/mpeg2_header/packet_header_length"/>
+</UntilOffsetRepeatStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+</Children>
+<LocationDefinition path="chunk/start_code_case/packet/dummy"/>
+<CaseDefinition defaultCase="mpeg1_header">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="2" littleEndian="false" radix="2" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="2">
+<Map encodedData="80" name="mpeg2_header"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+<CaseStatement label="data_case">
+<Children>
+<UntilOffsetFieldDefinition label="video_data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/packet/packet_length" signed="false"/>
+<ModificationDefinition addition="16" multiplication="8"/>
+</PointerLengthDefinition>
+<LocationDefinition path="chunk/start_code_case/packet/packet_length"/>
+</UntilOffsetFieldDefinition>
+<UntilOffsetFieldDefinition label="audio_data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/packet/packet_length" signed="false"/>
+<ModificationDefinition addition="16" multiplication="8"/>
+</PointerLengthDefinition>
+<LocationDefinition path="chunk/start_code_case/packet/packet_length"/>
+</UntilOffsetFieldDefinition>
+<UntilOffsetFieldDefinition label="unknown_data">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<PointerLengthDefinition>
+<PointerDefinition littleEndian="false" path="chunk/start_code_case/packet/packet_length" signed="false"/>
+<ModificationDefinition addition="16" multiplication="8"/>
+</PointerLengthDefinition>
+<LocationDefinition path="chunk/start_code_case/packet/packet_length"/>
+</UntilOffsetFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code"/>
+<CaseDefinition defaultCase="unknown_data">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="28" littleEndian="false" radix="16" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="28">
+<Map encodedData="000001C0" name="audio_data"/>
+<Map encodedData="000001D0" name="audio_data"/>
+<Map encodedData="000001E0" name="video_data"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<StaticLengthDefinition length="1"/>
+</RepeatStatement>
+<UntilDelimiterFieldDefinition label="unknown_chunk">
+<EncodingDefinition visible="true">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+</EncodingDefinition>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Data bitSize="24" data="000001"/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterFieldDefinition>
+</Children>
+<LocationDefinition path="chunk/start_code"/>
+<CaseDefinition defaultCase="unknown_chunk">
+<StringToDataMappingDefinition>
+<IntegerEncoding bitSize="28" littleEndian="false" radix="16" signed="false"/>
+<StringToDataMapping>
+<IntegerEncoding bitSize="8" littleEndian="false" radix="16" signed="false"/>
+<Mapping bitSize="28">
+<Map encodedData="000001B0" name="start_code_case_B"/>
+<Map encodedData="000001C0" name="packet"/>
+<Map encodedData="000001D0" name="packet"/>
+<Map encodedData="000001E0" name="packet"/>
+<Map encodedData="000001F0" name="start_code_case_F"/>
+</Mapping>
+</StringToDataMapping>
+</StringToDataMappingDefinition>
+</CaseDefinition>
+</CaseStatement>
+</Children>
+<DelimiterDefinition searchStepSize="8">
+<IntegerEncoding bitSize="1" littleEndian="false" radix="2" signed="false"/>
+<Data bitSize="0" data=""/>
+</DelimiterDefinition>
+<SimpleModificationDefinition addition="0"/>
+</UntilDelimiterRepeatStatement>
+</Children>
+<Author>Wojciech Stryjewski &lt;thvortex@users.sourceforge.net&gt;</Author>
+<Description>MPEG1/2 Program Stream
+
+MPEG1 BUGS:
+1. Cannot handle stuffing bytes in packet headers.
+
+MPEG2 BUGS:
+1. Program Stream Map not implemented
+2. Program Stream Directory not implemented
+3. Private Stream 1 does not parse PES header
+</Description>
+</RootStatement>

@@ -71,12 +71,12 @@ public class CompilerOutputPane extends MyJTable
 	*/
 	public void info(ViewDefinitionElement node, long bitOffset, String message)
 	{
-		add(new Comparable[] {new Long(getModel().getRowCount()), new StructureWrapper(node), new UnsignedOffset(bitOffset), message});
+		add(new Comparable[] {Long.valueOf(getModel().getRowCount()), new StructureWrapper(node), new UnsignedOffset(bitOffset), message});
 	}
 	
 	public void error(ViewDefinitionElement node, long bitOffset, String message)
 	{
-		add(new Comparable[] {new Long(getModel().getRowCount()), new StructureWrapper(node), new UnsignedOffset(bitOffset), message});
+		add(new Comparable[] {Long.valueOf(getModel().getRowCount()), new StructureWrapper(node), new UnsignedOffset(bitOffset), message});
 	}
 	
 	public long changeValue(String message, String valueName, long value, IntegerFormat integerFormat)

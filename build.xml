@@ -39,7 +39,7 @@
         <tstamp/>
         <mkdir dir="build"/>
         <javac optimize="true" debug="false" deprecation="true" 
-destdir="${build.dir}" srcdir="${src.dir}" excludes="utils/**" target="1.4" source="1.4">
+destdir="${build.dir}" srcdir="${src.dir}" excludes="utils/**" target="1.8" source="1.8">
         </javac>
     </target>
 
@@ -93,7 +93,7 @@ destdir="${build.dir}" srcdir="${src.dir}" excludes="utils/**" target="1.4" sour
                         destdir="${build.dir}/javadoc"
                         author="true"
                         version="true"
-                        source="1.4"
+                        source="1.8"
        	>
         	<fileset dir="${src.dir}" defaultexcludes="yes">
              	<include name="**/*.java" />

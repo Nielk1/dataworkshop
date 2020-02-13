@@ -681,7 +681,7 @@ public class XMLSerializeFactory
 
 	public static void setAttribute(Element element, String attribute, boolean value)
 	{
-		element.setAttribute(attribute, (new Boolean(value)).toString());
+		element.setAttribute(attribute, (Boolean.valueOf(value)).toString());
 	}
 
 	public static void setAttribute(Element element, String attribute, int[] values)
@@ -698,7 +698,7 @@ public class XMLSerializeFactory
 
 	public static Element serialize(Element context, String xPathName, boolean value)
 	{
-		return serialize(context, xPathName, (new Boolean(value)).toString());
+		return serialize(context, xPathName, (Boolean.valueOf(value)).toString());
 	}
 
 	public static Element serialize(Element context, String xPathName, int value)

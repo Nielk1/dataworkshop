@@ -42,107 +42,107 @@ public class EBCDIC extends DataEncoding
 	final static char[] charForValue = new char[256];
 
 	static {
-		HashMap map = new HashMap();
-		map.put(new Integer(64), new Character(')'));
+		HashMap<Integer, Character> map = new HashMap<Integer, Character>();
+		map.put(Integer.valueOf(64), Character.valueOf(')'));
 
-		map.put(new Integer(76), new Character('<'));
-		map.put(new Integer(77), new Character('('));
-		map.put(new Integer(78), new Character('+'));
-		map.put(new Integer(79), new Character('|'));
-		map.put(new Integer(80), new Character('&'));
+		map.put(Integer.valueOf(76), Character.valueOf('<'));
+		map.put(Integer.valueOf(77), Character.valueOf('('));
+		map.put(Integer.valueOf(78), Character.valueOf('+'));
+		map.put(Integer.valueOf(79), Character.valueOf('|'));
+		map.put(Integer.valueOf(80), Character.valueOf('&'));
 
-		map.put(new Integer(90), new Character('!'));
-		map.put(new Integer(91), new Character('$'));
-		map.put(new Integer(92), new Character('*'));
-		map.put(new Integer(93), new Character(')'));
-		map.put(new Integer(94), new Character(';'));
-		map.put(new Integer(95), new Character('~'));
-		map.put(new Integer(96), new Character('-'));
-		map.put(new Integer(97), new Character('/'));
+		map.put(Integer.valueOf(90), Character.valueOf('!'));
+		map.put(Integer.valueOf(91), Character.valueOf('$'));
+		map.put(Integer.valueOf(92), Character.valueOf('*'));
+		map.put(Integer.valueOf(93), Character.valueOf(')'));
+		map.put(Integer.valueOf(94), Character.valueOf(';'));
+		map.put(Integer.valueOf(95), Character.valueOf('~'));
+		map.put(Integer.valueOf(96), Character.valueOf('-'));
+		map.put(Integer.valueOf(97), Character.valueOf('/'));
 
-		map.put(new Integer(107), new Character(','));
-		map.put(new Integer(108), new Character('%'));
-		map.put(new Integer(109), new Character('_'));
-		map.put(new Integer(110), new Character('>'));
-		map.put(new Integer(111), new Character('?'));
+		map.put(Integer.valueOf(107), Character.valueOf(','));
+		map.put(Integer.valueOf(108), Character.valueOf('%'));
+		map.put(Integer.valueOf(109), Character.valueOf('_'));
+		map.put(Integer.valueOf(110), Character.valueOf('>'));
+		map.put(Integer.valueOf(111), Character.valueOf('?'));
 
-		map.put(new Integer(122), new Character(':'));
-		map.put(new Integer(123), new Character('#'));
-		map.put(new Integer(124), new Character('@'));
-		map.put(new Integer(125), new Character('\''));
-		map.put(new Integer(126), new Character('='));
-		map.put(new Integer(127), new Character('"'));
+		map.put(Integer.valueOf(122), Character.valueOf(':'));
+		map.put(Integer.valueOf(123), Character.valueOf('#'));
+		map.put(Integer.valueOf(124), Character.valueOf('@'));
+		map.put(Integer.valueOf(125), Character.valueOf('\''));
+		map.put(Integer.valueOf(126), Character.valueOf('='));
+		map.put(Integer.valueOf(127), Character.valueOf('"'));
 
-		map.put(new Integer(129), new Character('a'));
-		map.put(new Integer(130), new Character('b'));
-		map.put(new Integer(131), new Character('c'));
-		map.put(new Integer(132), new Character('d'));
-		map.put(new Integer(133), new Character('e'));
-		map.put(new Integer(134), new Character('f'));
-		map.put(new Integer(135), new Character('g'));
-		map.put(new Integer(136), new Character('h'));
-		map.put(new Integer(137), new Character('i'));
+		map.put(Integer.valueOf(129), Character.valueOf('a'));
+		map.put(Integer.valueOf(130), Character.valueOf('b'));
+		map.put(Integer.valueOf(131), Character.valueOf('c'));
+		map.put(Integer.valueOf(132), Character.valueOf('d'));
+		map.put(Integer.valueOf(133), Character.valueOf('e'));
+		map.put(Integer.valueOf(134), Character.valueOf('f'));
+		map.put(Integer.valueOf(135), Character.valueOf('g'));
+		map.put(Integer.valueOf(136), Character.valueOf('h'));
+		map.put(Integer.valueOf(137), Character.valueOf('i'));
 
-		map.put(new Integer(145), new Character('j'));
-		map.put(new Integer(146), new Character('k'));
-		map.put(new Integer(147), new Character('l'));
-		map.put(new Integer(148), new Character('m'));
-		map.put(new Integer(149), new Character('n'));
-		map.put(new Integer(150), new Character('o'));
-		map.put(new Integer(151), new Character('p'));
-		map.put(new Integer(152), new Character('q'));
-		map.put(new Integer(153), new Character('r'));
+		map.put(Integer.valueOf(145), Character.valueOf('j'));
+		map.put(Integer.valueOf(146), Character.valueOf('k'));
+		map.put(Integer.valueOf(147), Character.valueOf('l'));
+		map.put(Integer.valueOf(148), Character.valueOf('m'));
+		map.put(Integer.valueOf(149), Character.valueOf('n'));
+		map.put(Integer.valueOf(150), Character.valueOf('o'));
+		map.put(Integer.valueOf(151), Character.valueOf('p'));
+		map.put(Integer.valueOf(152), Character.valueOf('q'));
+		map.put(Integer.valueOf(153), Character.valueOf('r'));
 
-		map.put(new Integer(162), new Character('s'));
-		map.put(new Integer(163), new Character('t'));
-		map.put(new Integer(164), new Character('u'));
-		map.put(new Integer(165), new Character('v'));
-		map.put(new Integer(166), new Character('w'));
-		map.put(new Integer(167), new Character('x'));
-		map.put(new Integer(168), new Character('y'));
-		map.put(new Integer(169), new Character('z'));
+		map.put(Integer.valueOf(162), Character.valueOf('s'));
+		map.put(Integer.valueOf(163), Character.valueOf('t'));
+		map.put(Integer.valueOf(164), Character.valueOf('u'));
+		map.put(Integer.valueOf(165), Character.valueOf('v'));
+		map.put(Integer.valueOf(166), Character.valueOf('w'));
+		map.put(Integer.valueOf(167), Character.valueOf('x'));
+		map.put(Integer.valueOf(168), Character.valueOf('y'));
+		map.put(Integer.valueOf(169), Character.valueOf('z'));
 
-		map.put(new Integer(185), new Character('`'));
+		map.put(Integer.valueOf(185), Character.valueOf('`'));
 
-		map.put(new Integer(193), new Character('A'));
-		map.put(new Integer(194), new Character('B'));
-		map.put(new Integer(195), new Character('C'));
-		map.put(new Integer(196), new Character('D'));
-		map.put(new Integer(197), new Character('E'));
-		map.put(new Integer(198), new Character('F'));
-		map.put(new Integer(199), new Character('G'));
-		map.put(new Integer(200), new Character('H'));
-		map.put(new Integer(201), new Character('I'));
+		map.put(Integer.valueOf(193), Character.valueOf('A'));
+		map.put(Integer.valueOf(194), Character.valueOf('B'));
+		map.put(Integer.valueOf(195), Character.valueOf('C'));
+		map.put(Integer.valueOf(196), Character.valueOf('D'));
+		map.put(Integer.valueOf(197), Character.valueOf('E'));
+		map.put(Integer.valueOf(198), Character.valueOf('F'));
+		map.put(Integer.valueOf(199), Character.valueOf('G'));
+		map.put(Integer.valueOf(200), Character.valueOf('H'));
+		map.put(Integer.valueOf(201), Character.valueOf('I'));
 
-		map.put(new Integer(209), new Character('J'));
-		map.put(new Integer(210), new Character('K'));
-		map.put(new Integer(211), new Character('L'));
-		map.put(new Integer(212), new Character('M'));
-		map.put(new Integer(213), new Character('N'));
-		map.put(new Integer(214), new Character('O'));
-		map.put(new Integer(215), new Character('P'));
-		map.put(new Integer(216), new Character('Q'));
-		map.put(new Integer(217), new Character('R'));
+		map.put(Integer.valueOf(209), Character.valueOf('J'));
+		map.put(Integer.valueOf(210), Character.valueOf('K'));
+		map.put(Integer.valueOf(211), Character.valueOf('L'));
+		map.put(Integer.valueOf(212), Character.valueOf('M'));
+		map.put(Integer.valueOf(213), Character.valueOf('N'));
+		map.put(Integer.valueOf(214), Character.valueOf('O'));
+		map.put(Integer.valueOf(215), Character.valueOf('P'));
+		map.put(Integer.valueOf(216), Character.valueOf('Q'));
+		map.put(Integer.valueOf(217), Character.valueOf('R'));
 
-		map.put(new Integer(226), new Character('S'));
-		map.put(new Integer(227), new Character('T'));
-		map.put(new Integer(228), new Character('U'));
-		map.put(new Integer(229), new Character('V'));
-		map.put(new Integer(230), new Character('W'));
-		map.put(new Integer(231), new Character('X'));
-		map.put(new Integer(232), new Character('Y'));
-		map.put(new Integer(233), new Character('Z'));
+		map.put(Integer.valueOf(226), Character.valueOf('S'));
+		map.put(Integer.valueOf(227), Character.valueOf('T'));
+		map.put(Integer.valueOf(228), Character.valueOf('U'));
+		map.put(Integer.valueOf(229), Character.valueOf('V'));
+		map.put(Integer.valueOf(230), Character.valueOf('W'));
+		map.put(Integer.valueOf(231), Character.valueOf('X'));
+		map.put(Integer.valueOf(232), Character.valueOf('Y'));
+		map.put(Integer.valueOf(233), Character.valueOf('Z'));
 
-		map.put(new Integer(240), new Character('0'));
-		map.put(new Integer(241), new Character('1'));
-		map.put(new Integer(242), new Character('2'));
-		map.put(new Integer(243), new Character('3'));
-		map.put(new Integer(244), new Character('4'));
-		map.put(new Integer(245), new Character('5'));
-		map.put(new Integer(246), new Character('6'));
-		map.put(new Integer(247), new Character('7'));
-		map.put(new Integer(248), new Character('8'));
-		map.put(new Integer(249), new Character('9'));
+		map.put(Integer.valueOf(240), Character.valueOf('0'));
+		map.put(Integer.valueOf(241), Character.valueOf('1'));
+		map.put(Integer.valueOf(242), Character.valueOf('2'));
+		map.put(Integer.valueOf(243), Character.valueOf('3'));
+		map.put(Integer.valueOf(244), Character.valueOf('4'));
+		map.put(Integer.valueOf(245), Character.valueOf('5'));
+		map.put(Integer.valueOf(246), Character.valueOf('6'));
+		map.put(Integer.valueOf(247), Character.valueOf('7'));
+		map.put(Integer.valueOf(248), Character.valueOf('8'));
+		map.put(Integer.valueOf(249), Character.valueOf('9'));
 
 		for (int i = 0; i < 256; i++)
 		{
@@ -150,13 +150,13 @@ public class EBCDIC extends DataEncoding
 			charForValue[i] = '.';
 		}
 
-		Iterator it = map.keySet().iterator();
+		Iterator<Integer> it = map.keySet().iterator();
 		Character character;
 		int value;
 		while (it.hasNext())
 		{
 			value = ((Integer) it.next()).intValue();
-			character = (Character) map.get(new Integer(value));
+			character = (Character) map.get(Integer.valueOf(value));
 			charForValue[value] = character.charValue();
 			valueForChar[(int) charForValue[value]] = value;
 		}

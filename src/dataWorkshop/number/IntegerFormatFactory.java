@@ -47,18 +47,18 @@ public class IntegerFormatFactory implements XMLSerializeable {
     public final static String BINARY = "Binary";
     public final static String HEXADECIMAL = "Hexadecimal";
     
-    public final static HashMap BASENAME_TO_RADIX_MAP = new HashMap();
+    public final static HashMap<String, Integer> BASENAME_TO_RADIX_MAP = new HashMap<String, Integer>();
     static {
-        BASENAME_TO_RADIX_MAP.put(BINARY, new java.lang.Integer(2));
-        BASENAME_TO_RADIX_MAP.put(DECIMAL, new java.lang.Integer(10));
-        BASENAME_TO_RADIX_MAP.put(HEXADECIMAL, new java.lang.Integer(16));
+        BASENAME_TO_RADIX_MAP.put(BINARY, Integer.valueOf(2));
+        BASENAME_TO_RADIX_MAP.put(DECIMAL, Integer.valueOf(10));
+        BASENAME_TO_RADIX_MAP.put(HEXADECIMAL, Integer.valueOf(16));
     }
     
-    public final static HashMap BASENAME_TO_POSTFIX_MAP = new HashMap();
+    public final static HashMap<String, Character> BASENAME_TO_POSTFIX_MAP = new HashMap<String, Character>();
     static {
-        BASENAME_TO_POSTFIX_MAP.put(BINARY, new Character('b'));
-        BASENAME_TO_POSTFIX_MAP.put(DECIMAL, new Character('d'));
-        BASENAME_TO_POSTFIX_MAP.put(HEXADECIMAL, new Character('h'));
+        BASENAME_TO_POSTFIX_MAP.put(BINARY, Character.valueOf('b'));
+        BASENAME_TO_POSTFIX_MAP.put(DECIMAL, Character.valueOf('d'));
+        BASENAME_TO_POSTFIX_MAP.put(HEXADECIMAL, Character.valueOf('h'));
     }
     
     public final static String BIT = "Bits";
@@ -70,21 +70,21 @@ public class IntegerFormatFactory implements XMLSerializeable {
      *  The final ones are calculated in getGroupedIntegerConverter using the
      *  complete bitsize of the converter.
      */
-    public final static HashMap OFFSET_RULE_TO_GROUPING_MAP = new HashMap();
+    public final static HashMap<String, int[]> OFFSET_RULE_TO_GROUPING_MAP = new HashMap<String, int[]>();
     static {
         OFFSET_RULE_TO_GROUPING_MAP.put(BIT, new int[0]);
         OFFSET_RULE_TO_GROUPING_MAP.put(BYTES_BITS, new int[]{3});
         OFFSET_RULE_TO_GROUPING_MAP.put(MBYTES_KBYTES_BYTES_BITS, new int[]{8,8,3});
     }
     
-    public final static ArrayList validBases = new ArrayList();
+    public final static ArrayList<String> validBases = new ArrayList<String>();
     static {
         validBases.add(BINARY);
         validBases.add(DECIMAL);
         validBases.add(HEXADECIMAL);
     }
     
-    public final static ArrayList validOffsetRules = new ArrayList();
+    public final static ArrayList<String> validOffsetRules = new ArrayList<String>();
     static {
         validOffsetRules.add(BIT);
         validOffsetRules.add(BYTES_BITS);

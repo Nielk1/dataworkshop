@@ -356,7 +356,7 @@ public class ActionFactory implements LocaleStrings
 						NumberDialog dialog =
 							new NumberDialog(
 								editor,
-								FIND_ALL_RESULT_ABOVE_LIMIT_MESSAGE.format(new Object[] { new Integer(intervals.length)}),
+								FIND_ALL_RESULT_ABOVE_LIMIT_MESSAGE.format(new Object[] { Integer.valueOf(intervals.length)}),
 								"Matches",
 								intervals.length,
 								DataWorkshop.getInstance().getUnsignedCount());
@@ -1072,7 +1072,7 @@ public class ActionFactory implements LocaleStrings
 						long bitOffset = 0;
 						if (data.getBitSize() % encoding.getBitSize() != 0)
 						{
-							ErrorDialogFactory.show(IMPORT_DATA_MESSAGE.format(new Object[] { projectPane.getShortName(), new Integer(encoding.getBitSize())}), editor);
+							ErrorDialogFactory.show(IMPORT_DATA_MESSAGE.format(new Object[] { projectPane.getShortName(), Integer.valueOf(encoding.getBitSize())}), editor);
 							return;
 						}
 
@@ -1124,7 +1124,7 @@ public class ActionFactory implements LocaleStrings
 
 						if (fileLength % dotSize != 0)
 						{
-							ErrorDialogFactory.show(IMPORT_DATA_MESSAGE.format(new Object[] { file, new Integer(dotSize)}), editor);
+							ErrorDialogFactory.show(IMPORT_DATA_MESSAGE.format(new Object[] { file, Integer.valueOf(dotSize)}), editor);
 							return;
 						}
 

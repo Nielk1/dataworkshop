@@ -55,7 +55,7 @@ public class IntegerFormat implements XMLSerializeableSingleton {
     public IntegerFormat(DataNumber dataNumber, DataEncoding dataConverter, char postfix) {
         this.dataNumber = dataNumber;
         this.dataConverter = dataConverter;
-        this.postfix = (new Character(postfix)).toString();
+        this.postfix = (Character.valueOf(postfix)).toString();
     }
     
     /******************************************************************************

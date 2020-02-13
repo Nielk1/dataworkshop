@@ -106,8 +106,8 @@ public class TextClipboardDialog extends DialogWindow implements LocaleStrings {
             DataEncoding converter = converterBox.getDataEncoding();
             if (buffer.length() % converter.getDotSize() != 0) {
                 Object[] args = new Object[2];
-                args[0] = new Integer(converter.getDotSize());
-                args[1] = new Integer(converter.getDotSize() - (buffer.length() % converter.getDotSize()));
+                args[0] = Integer.valueOf(converter.getDotSize());
+                args[1] = Integer.valueOf(converter.getDotSize() - (buffer.length() % converter.getDotSize()));
 				ErrorDialogFactory.show(DATA_CONVERTER_NOT_ENOUGH_CHARS_MESSAGE.format(args), this);
             }
             else {

@@ -209,7 +209,7 @@ public class MyMutableTreeNode implements MutableTreeNode
 	private void getIndexPathToRoot(ArrayList list) {
 		   MyMutableTreeNode parent = (MyMutableTreeNode) getParent();
 		   if (parent != null) {
-			   list.add(new Integer(parent.getIndex(this)));
+			   list.add(Integer.valueOf(parent.getIndex(this)));
 			   parent.getIndexPathToRoot(list);
 		   }
 	   }

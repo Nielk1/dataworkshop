@@ -43,9 +43,9 @@ public abstract class IEEE754 extends NumberEncoding {
     };
     static HashMap NAME_TO_TYPE_MAPPING = new HashMap();
     static {
-        NAME_TO_TYPE_MAPPING.put(NAMES[0], new Integer(0));
-        NAME_TO_TYPE_MAPPING.put(NAMES[1], new Integer(1));
-        NAME_TO_TYPE_MAPPING.put(NAMES[2], new Integer(2));
+        NAME_TO_TYPE_MAPPING.put(NAMES[0], Integer.valueOf(0));
+        NAME_TO_TYPE_MAPPING.put(NAMES[1], Integer.valueOf(1));
+        NAME_TO_TYPE_MAPPING.put(NAMES[2], Integer.valueOf(2));
     }
     final static int[] BIT_SIZE = {32, 64, 80};
     final static int[] MANTISSE_BIT_SIZE = {23, 52, 63};

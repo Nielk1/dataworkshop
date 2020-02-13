@@ -405,7 +405,7 @@ public class DataFrame extends MyMutableTreeNode implements XMLSerializeable
 	private void getPath(ArrayList list) {
 		DataFrame parent = (DataFrame) getParent();
 		if (parent != null) {
-			list.add(new Integer(parent.getIndex(this)));
+			list.add(Integer.valueOf(parent.getIndex(this)));
 			parent.getPath(list);
 		}	
 	}	

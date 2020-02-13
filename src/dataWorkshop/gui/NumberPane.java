@@ -183,7 +183,7 @@ public class NumberPane extends ActionPane implements ChangeListener, FocusListe
 		spinner.setEditor(encodingField);
 		long value = Math.min(0, maximum);
 		value = Math.max(minimum, value);
-		spinner.setModel(new SpinnerNumberModel(new Long(value), new Long(minimum), new Long(maximum), new Long(1)));
+		spinner.setModel(new SpinnerNumberModel(Long.valueOf(value), Long.valueOf(minimum), Long.valueOf(maximum), Long.valueOf(1)));
 		/**
 		 * :KLUDGE:Martin Pape:Jun 12, 2003
 		 * with j2sdk1.4.2beta we must not set the Border to null as the default border is ok
@@ -194,7 +194,7 @@ public class NumberPane extends ActionPane implements ChangeListener, FocusListe
 		spinner.setMaximumSize(spinner.getPreferredSize());
 		spinner.setMinimumSize(spinner.getPreferredSize());
 
-		postFixLabel = new JLabel((new Character(numberFormat.getPostfix())).toString());
+		postFixLabel = new JLabel((Character.valueOf(numberFormat.getPostfix())).toString());
 
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		setLabel(label);
@@ -312,7 +312,7 @@ public class NumberPane extends ActionPane implements ChangeListener, FocusListe
 	{
 		value = Math.max(minimum, value);
 		value = Math.min(maximum, value);
-		spinner.setValue(new Long(value));
+		spinner.setValue(Long.valueOf(value));
 		encodingField.setData(number.encode(value));
 		fireActionEvent();
 	}
@@ -325,7 +325,7 @@ public class NumberPane extends ActionPane implements ChangeListener, FocusListe
 	public void setMaximum(long max)
 	{
 		maximum = max;
-		((SpinnerNumberModel) spinner.getModel()).setMaximum(new Long(max));
+		((SpinnerNumberModel) spinner.getModel()).setMaximum(Long.valueOf(max));
 		setValue(getValue());
 		calcToolTip();
 	}
@@ -333,14 +333,14 @@ public class NumberPane extends ActionPane implements ChangeListener, FocusListe
 	public void setMinimum(long min)
 	{
 		minimum = min;
-		((SpinnerNumberModel) spinner.getModel()).setMinimum(new Long(min));
+		((SpinnerNumberModel) spinner.getModel()).setMinimum(Long.valueOf(min));
 		setValue(getValue());
 		calcToolTip();
 	}
 
 	public void setStepSize(int gran)
 	{
-		((SpinnerNumberModel) spinner.getModel()).setStepSize(new Long(gran));
+		((SpinnerNumberModel) spinner.getModel()).setStepSize(Long.valueOf(gran));
 	}
 
 	public int getStepSize()

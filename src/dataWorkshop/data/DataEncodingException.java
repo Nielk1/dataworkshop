@@ -64,7 +64,7 @@ public class DataEncodingException extends Exception implements LocaleStrings
 	{
 		super(DATA_CONVERTER_ILLEGAL_CHAR_MESSAGE.format
 			(
-				new Object[] {new String(data), new Character(illegalChar), new Integer((int) illegalChar)}
+				new Object[] {new String(data), Character.valueOf(illegalChar), Integer.valueOf((int) illegalChar)}
 			)
 		);
 		this.source = source;
